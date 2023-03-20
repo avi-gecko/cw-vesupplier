@@ -20,5 +20,6 @@ private:
 
 private slots:
     void about();
+    void on_addButton_clicked();
 };
 #endif // MAINWINDOW_H

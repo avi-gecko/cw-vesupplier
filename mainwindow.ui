@@ -30,21 +30,16 @@
        <attribute name="title">
         <string>Tab 1</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QTextEdit" name="textEdit"/>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
       </widget>
       <widget class="QWidget" name="tab_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <attribute name="title">
         <string>Tab 2</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QTableWidget" name="tableWidget"/>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_3"/>
       </widget>
      </widget>
     </item>
@@ -106,9 +101,9 @@
     <property name="title">
      <string>Файл</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
-    <addaction name="action_3"/>
+    <addaction name="open"/>
+    <addaction name="close"/>
+    <addaction name="exit"/>
    </widget>
    <widget class="QMenu" name="about">
     <property name="title">
@@ -119,17 +114,17 @@
    <addaction name="about"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action">
+  <action name="open">
    <property name="text">
     <string>Открыть</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="close">
    <property name="text">
     <string>Закрыть</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="exit">
    <property name="text">
     <string>Выход</string>
    </property>

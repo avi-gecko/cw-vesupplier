@@ -34,6 +34,7 @@ void MainWindow::about()
 
 void MainWindow::open()
 {
+    // Получение имени файла
     QString file_name = QFileDialog::getOpenFileName();
     QFile file(file_name);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -43,6 +44,8 @@ void MainWindow::open()
     QString header;
     QStringList labels;
     header = in.readLine();
+
+    // Проверка на формат
     if (header == QString("<DB;>"))
     {
         QMessageBox::critical(this
@@ -68,6 +71,7 @@ void MainWindow::open()
     QTableWidget* new_table =  new QTableWidget(this);
     ui->tabWidget->addTab(new_table, file_name);
 
+    //Создание таблицы
     new_table->setColumnCount(labels.size());
     new_table->setHorizontalHeaderLabels(labels);
   /*  while (!in.atEnd())

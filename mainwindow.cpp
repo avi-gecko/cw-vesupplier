@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->about, &QMenu::aboutToShow, this, &MainWindow::about);
     connect(ui->open, &QAction::triggered, this, &MainWindow::open);
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::close);
+    connect(ui->close, &QAction::triggered, this, &MainWindow::close);
 }
 
 MainWindow::~MainWindow()
@@ -83,7 +84,9 @@ void MainWindow::open()
 
 void MainWindow::close()
 {
-    delete ui->tabWidget->currentWidget();
+    QWidget* tab = ui->tabWidget->currentWidget();
+    if (tab != nullptr)
+        delete tab;
 }
 
 

@@ -5,3 +5,8 @@ VesupplierTableModel::VesupplierTableModel(QObject *parent)
 {
     m_values = new QList<Vesupplier>();
 }
+
+int VesupplierTableModel::columnCount(const QModelIndex &parent) const
+{
+    return 8;
+}

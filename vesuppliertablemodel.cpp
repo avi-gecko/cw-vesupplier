@@ -10,3 +10,8 @@ int VesupplierTableModel::columnCount(const QModelIndex &parent) const
 {
     return 8;
 }
+
+int VesupplierTableModel::rowCount(const QModelIndex &parent) const
+{
+    return m_values->count();
+}

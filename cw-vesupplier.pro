@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    vesupplier.cpp
+    vesupplier.cpp \
+    vesuppliertablemodel.cpp
 
 HEADERS += \
     mainwindow.h \
-    vesupplier.h
+    vesupplier.h \
+    vesuppliertablemodel.h
 
 FORMS += \
     mainwindow.ui

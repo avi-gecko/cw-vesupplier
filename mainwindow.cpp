@@ -35,7 +35,7 @@ void MainWindow::about()
 
 void MainWindow::open()
 {
-    // Получение имени файла
+    // Открытие файла
     QString file_name = QFileDialog::getOpenFileName();
     QFile file(file_name);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -52,6 +52,7 @@ void MainWindow::open()
         QMessageBox::critical(this
                             , QString(tr("Ошибка!"))
                             , QString(tr("Таблица не может не иметь столбцов.")));
+        file.close();
         return;
     }
     if (header.startsWith(QString("<DB;")) and header.endsWith(QString(">")))

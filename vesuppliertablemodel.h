@@ -7,6 +7,7 @@
 class VesupplierTableModel : public QAbstractListModel
 {
 public:
+    ~VesupplierTableModel() override;
     explicit VesupplierTableModel(QObject *parent = nullptr);
     int columnCount(const QModelIndex &parent) const override;
     int rowCount(const QModelIndex &parent) const override;

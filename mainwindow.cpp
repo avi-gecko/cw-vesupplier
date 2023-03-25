@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "vesupplier.h"
+#include "vesuppliertablemodel.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -7,7 +9,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QStringList>
-#include <QTableWidget>
+#include <QTableView>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,8 +31,8 @@ MainWindow::~MainWindow()
 void MainWindow::about()
 {
     QMessageBox::about(this
-                     , QString(tr("О программе"))
-                     , QString(tr("Создано Алексеем Ильиным ИЦТМС 2-5")));
+                     , QString(tr("About"))
+                     , QString(tr("Created by Alexey Ilin ICTMS 2-5")));
 }
 
 void MainWindow::open()
@@ -50,8 +52,8 @@ void MainWindow::open()
     if (header == QString("<DB;>"))
     {
         QMessageBox::critical(this
-                            , QString(tr("Ошибка!"))
-                            , QString(tr("Таблица не может не иметь столбцов.")));
+                            , QString(tr("Error!"))
+                            , QString(tr("Table can't has columns.")));
         file.close();
         return;
     }
@@ -64,18 +66,18 @@ void MainWindow::open()
     {
 
         QMessageBox::critical(this
-                            , QString(tr("Ошибка!"))
-                            , QString(tr("Неверный формат файла.")));
+                            , QString(tr("Error!"))
+                            , QString(tr("Wrong file format.")));
         file.close();
         return;
     }
 
-    QTableWidget* new_table =  new QTableWidget(this);
+    QTableView* new_table =  new QTableView(this);
     ui->tabWidget->addTab(new_table, file_name);
 
     //Создание таблицы
-    new_table->setColumnCount(labels.size());
-    new_table->setHorizontalHeaderLabels(labels);
+    VesupplierTableModel* model = new VesupplierTableModel();
+    new_table->setModel(model);
   /*  while (!in.atEnd())
     {
          result += in.readLine();
@@ -85,7 +87,10 @@ void MainWindow::open()
 
 void MainWindow::close()
 {
-    QWidget* tab = ui->tabWidget->currentWidget();
+    QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+    QAbstractItemModel* model = tab->model();
+    if (model != nullptr)
+        delete model;
     if (tab != nullptr)
         delete tab;
 }

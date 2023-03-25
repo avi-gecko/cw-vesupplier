@@ -10,15 +10,17 @@ Vesupplier::Vesupplier(QString nameOrganzation
                      , QString address
                      , QString nameOwner
                      , QString phone
-                     , unsigned int count
-                     , unsigned double price)
+                     , unsigned int countProduct
+                     , unsigned int countPost
+                     , double price)
 
                      : m_nameOrganizaton(nameOrganzation)
                      , m_OGRN(OGRN)
                      , m_address(address)
                      , m_nameOwner(nameOwner)
                      , m_phone(phone)
-                     , m_count(count)
+                     , m_countProduct(countProduct)
+                     , m_countPost(countPost)
                      , m_price(price)
 {
 
@@ -49,9 +51,14 @@ void Vesupplier::setPhone(const QString phone)
     m_phone = phone;
 }
 
-void Vesupplier::setCount(const unsigned int count)
+void Vesupplier::setCountProduct(const unsigned int countProduct)
 {
-    m_count = count;
+    m_countProduct = countProduct;
+}
+
+void Vesupplier::setCountPost(const unsigned int countPost)
+{
+    m_countPost = countPost;
 }
 
 void Vesupplier::setPrice(const double price)
@@ -84,9 +91,14 @@ QString Vesupplier::getPhone() const
     return m_phone;
 }
 
-unsigned int Vesupplier::getCount() const
+unsigned int Vesupplier::getCountProduct() const
 {
-    return m_count;
+    return m_countProduct;
+}
+
+unsigned int Vesupplier::getCountPost() const
+{
+    return m_countPost;
 }
 
 double Vesupplier::getPrice() const

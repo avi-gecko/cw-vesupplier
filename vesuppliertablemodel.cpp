@@ -1,8 +1,11 @@
 #include "vesuppliertablemodel.h"
+#include <QApplication>
+#include <QTranslator>
 
 VesupplierTableModel::~VesupplierTableModel()
 {
-    delete m_values;
+    delete m_values; 
+    throw std::exception();
 }
 
 VesupplierTableModel::VesupplierTableModel(QObject *parent)
@@ -84,4 +87,31 @@ QVariant VesupplierTableModel::data(const QModelIndex &index, int role) const
         }
     }
     return value;
+}
+
+QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
+    {
+        switch (section)
+        {
+            case 0:
+                return QString(tr("Name"));
+            case 1:
+                return QString(tr("OGRN"));
+            case 2:
+                return QString(tr("Address"));
+            case 3:
+                return QString(tr("Name owner"));
+            case 4:
+                return QString(tr("Phone"));
+            case 5:
+                return QString(tr("Product count"));
+            case 6:
+                return QString(tr("Post count"));
+            case 7:
+                return QString(tr("Price"));
+        }
+    }
+    return QVariant();
 }

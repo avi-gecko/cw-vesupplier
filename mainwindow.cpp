@@ -72,7 +72,7 @@ void MainWindow::open()
         return;
     }
 
-    QTableView* new_table =  new QTableView(this);
+    QTableView* new_table =  new QTableView(ui->tabWidget);
     ui->tabWidget->addTab(new_table, file_name);
 
     //Создание таблицы
@@ -89,8 +89,6 @@ void MainWindow::close()
 {
     QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
     QAbstractItemModel* model = tab->model();
-    if (model != nullptr)
-        delete model;
     if (tab != nullptr)
         delete tab;
 }

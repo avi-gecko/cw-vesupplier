@@ -45,24 +45,10 @@ void MainWindow::open()
 
     QTextStream in(&file);
     QString header;
-    QStringList labels;
     header = in.readLine();
 
-    // Проверка на формат
-    if (header == QString("<DB;>"))
-    {
-        QMessageBox::critical(this
-                            , QString(tr("Error!"))
-                            , QString(tr("Table can't has columns.")));
-        file.close();
-        return;
-    }
-    if (header.startsWith(QString("<DB;")) and header.endsWith(QString(">")))
-    {
-        header = header.sliced(4, header.size() - 6);
-        labels = header.split(";");
-    }
-    else
+
+    if (header != QString("<DB>"))
     {
 
         QMessageBox::critical(this
@@ -72,17 +58,29 @@ void MainWindow::open()
         return;
     }
 
-    QTableView* new_table =  new QTableView(ui->tabWidget);
-    ui->tabWidget->addTab(new_table, file_name);
 
     //Создание таблицы
-    VesupplierTableModel* model = new VesupplierTableModel();
-    new_table->setModel(model);
-  /*  while (!in.atEnd())
+    QTableView* new_table =  new QTableView(ui->tabWidget);
+    VesupplierTableModel* model = new VesupplierTableModel(new_table);
+
+    while (!in.atEnd())
     {
-         result += in.readLine();
-    }*/
-   file.close();
+         QString result = in.readLine();
+         QList splitted = result.split(QString(";"));
+
+         Vesupplier new_item(splitted.at(0)
+                           , splitted.at(1)
+                           , splitted.at(2)
+                           , splitted.at(3)
+                           , splitted.at(4)
+                           , splitted.at(5).toInt()
+                           , splitted.at(6).toInt()
+                           , splitted.at(7).toInt());
+         model->append(new_item);
+    }
+    new_table->setModel(model);
+    ui->tabWidget->addTab(new_table, file_name);
+    file.close();
 }
 
 void MainWindow::close()

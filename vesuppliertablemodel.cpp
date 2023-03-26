@@ -5,21 +5,12 @@
 VesupplierTableModel::~VesupplierTableModel()
 {
     delete m_values; 
-    throw std::exception();
 }
 
 VesupplierTableModel::VesupplierTableModel(QObject *parent)
     : QAbstractListModel{parent}
 {
     m_values = new QList<Vesupplier>();
-    m_values->append(Vesupplier(QString("Test")
-                              , QString("Test")
-                              , QString("Test")
-                              , QString("Test")
-                              , QString("Test")
-                              , 100
-                              , 100
-                              , 100.0));
 }
 
 int VesupplierTableModel::columnCount(const QModelIndex &parent) const
@@ -114,4 +105,13 @@ QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientati
         }
     }
     return QVariant();
+}
+
+void VesupplierTableModel::append(const Vesupplier value)
+{
+    int newRow = m_values->count() + 1;
+
+    this->beginInsertRows(QModelIndex(), newRow, newRow);
+        m_values->append(value);
+    endInsertRows();
 }

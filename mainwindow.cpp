@@ -10,6 +10,7 @@
 #include <QTextStream>
 #include <QStringList>
 #include <QTableView>
+#include <QSortFilterProxyModel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -61,8 +62,9 @@ void MainWindow::open()
 
     //Создание таблицы
     QTableView* new_table =  new QTableView(ui->tabWidget);
+    new_table->setSortingEnabled(true);
     VesupplierTableModel* model = new VesupplierTableModel(new_table);
-
+    QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
     while (!in.atEnd())
     {
          QString result = in.readLine();
@@ -78,7 +80,8 @@ void MainWindow::open()
                            , splitted.at(7).toInt());
          model->append(new_item);
     }
-    new_table->setModel(model);
+    sort_model->setSourceModel(model);
+    new_table->setModel(sort_model);
     ui->tabWidget->addTab(new_table, file_name);
     file.close();
 }

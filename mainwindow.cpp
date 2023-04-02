@@ -66,6 +66,8 @@ void MainWindow::open()
     new_table->setSortingEnabled(true);
     VesupplierTableModel* model = new VesupplierTableModel(new_table);
     QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
+    sort_model->setDynamicSortFilter(false);
+    sort_model->setSourceModel(model);
     while (!in.atEnd())
     {
          QString result = in.readLine();
@@ -76,21 +78,20 @@ void MainWindow::open()
                            , splitted.at(2)
                            , splitted.at(3)
                            , splitted.at(4)
-                           , splitted.at(5).toInt()
-                           , splitted.at(6).toInt()
-                           , splitted.at(7).toInt());
+                           , splitted.at(5).toUInt()
+                           , splitted.at(6).toUInt()
+                           , splitted.at(7).toDouble());
          model->append(new_item);
     }
-    sort_model->setSourceModel(model);
     new_table->setModel(sort_model);
     ui->tabWidget->addTab(new_table, file_name);
+    ui->label->setText(QString::number(model->rowCount(QModelIndex())));
     file.close();
 }
 
 void MainWindow::close()
 {
     QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
-    QAbstractItemModel* model = tab->model();
     if (tab != nullptr)
         delete tab;
 }
@@ -98,7 +99,20 @@ void MainWindow::close()
 
 void MainWindow::on_addButton_clicked()
 {
-    AddDialog dialog(this);
-    dialog.exec();
+
+   QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+    if (tab == nullptr)
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before adding.")));
+        return;
+    }
+    QSortFilterProxyModel* sort_model = dynamic_cast<QSortFilterProxyModel*>(tab->model());
+    sort_model->invalidate();
+    VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    m_addDialog = new AddDialog(this, model);
+    m_addDialog->exec();
+    delete m_addDialog;
 }
 

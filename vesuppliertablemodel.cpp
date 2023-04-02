@@ -20,13 +20,13 @@ int VesupplierTableModel::columnCount(const QModelIndex &parent) const
 
 int VesupplierTableModel::rowCount(const QModelIndex &parent) const
 {
-    return m_values->count();
+    Q_UNUSED(parent);
+    return m_values->size();
 }
 
 QVariant VesupplierTableModel::data(const QModelIndex &index, int role) const
 {
     QVariant value;
-
     switch(role)
     {
         case Qt::DisplayRole:
@@ -109,9 +109,10 @@ QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientati
 
 void VesupplierTableModel::append(const Vesupplier value)
 {
-    int newRow = m_values->count() + 1;
-
+    int newRow = rowCount(QModelIndex()) + 1;
     this->beginInsertRows(QModelIndex(), newRow, newRow);
         m_values->append(value);
     endInsertRows();
+    emit dataChanged(index(0, 0), index(rowCount(QModelIndex())-1, columnCount(QModelIndex())-1));
+    emit layoutChanged();
 }

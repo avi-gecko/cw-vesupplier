@@ -93,7 +93,7 @@ QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientati
             case 2:
                 return QString(tr("Address"));
             case 3:
-                return QString(tr("Name owner"));
+                return QString(tr("Owner name"));
             case 4:
                 return QString(tr("Phone"));
             case 5:

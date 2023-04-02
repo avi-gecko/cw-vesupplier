@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "vesupplier.h"
 #include "vesuppliertablemodel.h"
+#include "adddialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -97,6 +98,7 @@ void MainWindow::close()
 
 void MainWindow::on_addButton_clicked()
 {
-
+    AddDialog dialog(this);
+    dialog.exec();
 }
 

@@ -110,9 +110,17 @@ QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientati
 void VesupplierTableModel::append(const Vesupplier value)
 {
     int newRow = rowCount(QModelIndex()) + 1;
-    this->beginInsertRows(QModelIndex(), newRow, newRow);
+    beginInsertRows(QModelIndex(), newRow, newRow);
         m_values->append(value);
     endInsertRows();
     emit dataChanged(index(0, 0), index(rowCount(QModelIndex())-1, columnCount(QModelIndex())-1));
     emit layoutChanged();
+}
+
+void VesupplierTableModel::deleteRow(int idx)
+{
+    beginRemoveRows(QModelIndex(), idx, idx);
+        m_values->removeAt(idx);
+    endRemoveRows();
+    m_values->squeeze();
 }

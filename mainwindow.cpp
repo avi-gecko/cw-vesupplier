@@ -66,7 +66,6 @@ void MainWindow::open()
     new_table->setSortingEnabled(true);
     VesupplierTableModel* model = new VesupplierTableModel(new_table);
     QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
-    sort_model->setDynamicSortFilter(false);
     sort_model->setSourceModel(model);
     while (!in.atEnd())
     {
@@ -85,13 +84,12 @@ void MainWindow::open()
     }
     new_table->setModel(sort_model);
     ui->tabWidget->addTab(new_table, file_name);
-    ui->label->setText(QString::number(model->rowCount(QModelIndex())));
     file.close();
 }
 
 void MainWindow::close()
 {
-    QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
     if (tab != nullptr)
         delete tab;
 }
@@ -108,11 +106,31 @@ void MainWindow::on_addButton_clicked()
                          , QString(tr("You should open document before adding.")));
         return;
     }
-    QSortFilterProxyModel* sort_model = dynamic_cast<QSortFilterProxyModel*>(tab->model());
-    sort_model->invalidate();
+    QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
     m_addDialog = new AddDialog(this, model);
     m_addDialog->exec();
     delete m_addDialog;
+}
+
+
+void MainWindow::on_deleteButton_clicked()
+{
+    QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+     if (tab == nullptr)
+     {
+         QMessageBox::about(this
+                          , QString(tr("Warning!"))
+                          , QString(tr("You should open document before deleting.")));
+         return;
+     }
+     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     QModelIndex index = tab->currentIndex();
+     QModelIndex source_index = sort_model->mapToSource(index);
+     if (!source_index.isValid())
+         return;
+     int row = source_index.row();
+     model->deleteRow(row);
 }
 

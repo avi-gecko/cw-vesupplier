@@ -14,6 +14,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     void append(const Vesupplier value);
+    void deleteRow(int idx);
 private:
     QList<Vesupplier> *m_values;
 };

@@ -3,6 +3,7 @@
 #include "vesupplier.h"
 #include "vesuppliertablemodel.h"
 #include "adddialog.h"
+#include "editdialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -72,14 +73,14 @@ void MainWindow::open()
          QString result = in.readLine();
          QList splitted = result.split(QString(";"));
 
-         Vesupplier new_item(splitted.at(0)
-                           , splitted.at(1)
-                           , splitted.at(2)
-                           , splitted.at(3)
-                           , splitted.at(4)
-                           , splitted.at(5).toUInt()
-                           , splitted.at(6).toUInt()
-                           , splitted.at(7).toDouble());
+         Vesupplier* new_item = new Vesupplier(splitted.at(0)
+                                             , splitted.at(1)
+                                             , splitted.at(2)
+                                             , splitted.at(3)
+                                             , splitted.at(4)
+                                             , splitted.at(5).toUInt()
+                                             , splitted.at(6).toUInt()
+                                             , splitted.at(7).toDouble());
          model->append(new_item);
     }
     new_table->setModel(sort_model);
@@ -108,9 +109,8 @@ void MainWindow::on_addButton_clicked()
     }
     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
-    m_addDialog = new AddDialog(this, model);
-    m_addDialog->exec();
-    delete m_addDialog;
+    AddDialog addDialog(this, model);
+    addDialog.exec();
 }
 
 
@@ -132,5 +132,27 @@ void MainWindow::on_deleteButton_clicked()
          return;
      int row = source_index.row();
      model->deleteRow(row);
+}
+
+
+void MainWindow::on_editButton_clicked()
+{
+     QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+     if (tab == nullptr)
+     {
+         QMessageBox::about(this
+                          , QString(tr("Warning!"))
+                          , QString(tr("You should open document before deleting.")));
+         return;
+     }
+     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     QModelIndex index = tab->currentIndex();
+     QModelIndex source_index = sort_model->mapToSource(index);
+     if (!source_index.isValid())
+         return;
+     int row = source_index.row();
+     EditDialog editDialog(this, model, row);
+     editDialog.exec();
 }
 

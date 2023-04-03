@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddDialog</class>
- <widget class="QDialog" name="AddDialog">
+ <class>EditDialog</class>
+ <widget class="QDialog" name="EditDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add row</string>
+   <string>Edit row</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -45,14 +45,14 @@
     <widget class="QLineEdit" name="addressLineEdit"/>
    </item>
    <item>
-    <widget class="QLabel" name="ownerNameLabel">
+    <widget class="QLabel" name="nameOwnerLabel">
      <property name="text">
       <string>Owner name</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="ownerNameLineEdit"/>
+    <widget class="QLineEdit" name="nameOwnerLineEdit"/>
    </item>
    <item>
     <widget class="QLabel" name="phoneLabel">
@@ -65,14 +65,14 @@
     <widget class="QLineEdit" name="phoneLineEdit"/>
    </item>
    <item>
-    <widget class="QLabel" name="productCountLabel">
+    <widget class="QLabel" name="countProductLabel">
      <property name="text">
       <string>Product count</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="productCountLineEdit"/>
+    <widget class="QLineEdit" name="countProductLineEdit"/>
    </item>
    <item>
     <widget class="QLabel" name="postCountLabel">
@@ -82,10 +82,10 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="postCountlineEdit"/>
+    <widget class="QLineEdit" name="countPostLineEdit"/>
    </item>
    <item>
-    <widget class="QLabel" name="priceLabel">
+    <widget class="QLabel" name="PriceLabel">
      <property name="text">
       <string>Price</string>
      </property>
@@ -96,6 +96,9 @@
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>

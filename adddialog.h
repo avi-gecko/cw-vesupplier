@@ -22,6 +22,7 @@ private:
     VesupplierTableModel *m_model;
 private slots:
     void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
 };
 
 #endif // ADDDIALOG_H

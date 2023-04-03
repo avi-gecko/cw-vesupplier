@@ -28,14 +28,20 @@ void AddDialog::on_buttonBox_accepted()
     unsigned int productCount = ui->productCountLineEdit->text().toUInt();
     unsigned int postCount = ui->postCountlineEdit->text().toUInt();
     double price = ui->priceLineEdit->text().toDouble();
-    Vesupplier new_item(name
-                      , OGRN
-                      , address
-                      , nameOwner
-                      , phone
-                      , productCount
-                      , postCount
-                      , price);
+    Vesupplier* new_item = new Vesupplier(name
+                                        , OGRN
+                                        , address
+                                        , nameOwner
+                                        , phone
+                                        , productCount
+                                        , postCount
+                                        , price);
     m_model->append(new_item);
+}
+
+
+void AddDialog::on_buttonBox_rejected()
+{
+    this->close();
 }
 

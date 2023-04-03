@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QAbstractItemModel>
 #include "adddialog.h"
+#include "editdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,7 +20,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    AddDialog* m_addDialog;
 
 private slots:
     void about();
@@ -27,5 +27,6 @@ private slots:
     void close();
     void on_addButton_clicked();
     void on_deleteButton_clicked();
+    void on_editButton_clicked();
 };
 #endif // MAINWINDOW_H

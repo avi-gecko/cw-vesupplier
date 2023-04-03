@@ -13,10 +13,12 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    void append(const Vesupplier value);
+    void append(Vesupplier* value);
     void deleteRow(int idx);
+    QModelIndex index(int row, int column) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 private:
-    QList<Vesupplier> *m_values;
+    QList<Vesupplier*> *m_values;
 };
 
 #endif // VESUPPLIERTABLEMODEL_H

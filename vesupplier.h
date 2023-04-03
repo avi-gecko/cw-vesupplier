@@ -5,6 +5,7 @@
 class Vesupplier
 {
 public:
+    ~Vesupplier();
     Vesupplier();
     Vesupplier(QString nameOrganzation
              , QString OGRN

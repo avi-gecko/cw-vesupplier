@@ -1,5 +1,10 @@
 #include "vesupplier.h"
 
+Vesupplier::~Vesupplier()
+{
+
+}
+
 Vesupplier::Vesupplier()
 {
 

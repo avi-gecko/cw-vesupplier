@@ -99,7 +99,7 @@ void MainWindow::close()
 void MainWindow::on_addButton_clicked()
 {
 
-   QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+   QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
     if (tab == nullptr)
     {
         QMessageBox::about(this
@@ -116,7 +116,7 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::on_deleteButton_clicked()
 {
-    QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
      if (tab == nullptr)
      {
          QMessageBox::about(this
@@ -137,7 +137,7 @@ void MainWindow::on_deleteButton_clicked()
 
 void MainWindow::on_editButton_clicked()
 {
-     QTableView* tab = dynamic_cast<QTableView*>(ui->tabWidget->currentWidget());
+     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
      if (tab == nullptr)
      {
          QMessageBox::about(this

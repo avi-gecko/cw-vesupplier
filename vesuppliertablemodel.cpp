@@ -16,12 +16,13 @@ VesupplierTableModel::VesupplierTableModel(QObject *parent)
 
 int VesupplierTableModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return 8;
 }
 
 int VesupplierTableModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return m_values->size();
 }
 
@@ -114,8 +115,6 @@ void VesupplierTableModel::append(Vesupplier* value)
     beginInsertRows(QModelIndex(), newRow, newRow);
         m_values->append(value);
     endInsertRows();
-    emit dataChanged(index(0, 0), index(rowCount(QModelIndex())-1, columnCount(QModelIndex())-1));
-    emit layoutChanged();
 }
 
 void VesupplierTableModel::deleteRow(int idx)
@@ -129,7 +128,7 @@ void VesupplierTableModel::deleteRow(int idx)
 
 QModelIndex VesupplierTableModel::index(int row, int column) const
 {
-    if (row < 0 || row >= rowCount(QModelIndex()) || column < 0 || column >= columnCount(QModelIndex()))
+    if (row < 0 or row >= rowCount(QModelIndex()) or column < 0 or column >= columnCount(QModelIndex()))
     {
         return QModelIndex();
     }

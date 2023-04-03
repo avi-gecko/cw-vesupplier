@@ -18,8 +18,6 @@ AddDialog::~AddDialog()
 
 void AddDialog::on_buttonBox_accepted()
 {
-    if (!m_model)
-        return;
     QString name = ui->nameLineEdit->text();
     QString OGRN = ui->OGRNLineEdit->text();
     QString address = ui->addressLineEdit->text();

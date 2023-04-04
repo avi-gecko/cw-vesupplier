@@ -168,7 +168,7 @@
     <message>
         <location filename="mainwindow.cpp" line="39"/>
         <source>Created by Alexey Ilin ICTMS 2-5</source>
-        <translation>Создано Алексеем Ильином ИЦТМС 2-5</translation>
+        <translation type="unfinished">Создано Алексеем Ильиным ИЦТМС 2-5</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="46"/>

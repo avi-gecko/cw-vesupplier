@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->open, &QAction::triggered, this, &MainWindow::open);
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::close);
     connect(ui->close, &QAction::triggered, this, &MainWindow::close);
+    connect(ui->save, &QAction::triggered, this, &MainWindow::save);
 }
 
 MainWindow::~MainWindow()
@@ -41,7 +42,10 @@ void MainWindow::about()
 void MainWindow::open()
 {
     // Открытие файла
-    QString file_name = QFileDialog::getOpenFileName();
+    QString file_name = QFileDialog::getOpenFileName(this
+                                                   , QString(tr("Open file"))
+                                                   , QDir::homePath()
+                                                   , QString(tr("Database (*.db)")));
     QFile file(file_name);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
@@ -95,6 +99,56 @@ void MainWindow::close()
         delete tab;
 }
 
+void MainWindow::save()
+{
+    QString file_name;
+    if (ui->tabWidget->currentIndex() != -1)
+        file_name = ui->tabWidget->tabText(ui->tabWidget->currentIndex());
+    else
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before saving.")));
+        return;
+    }
+
+
+
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+     if (tab == nullptr)
+     {
+         QMessageBox::about(this
+                          , QString(tr("Warning!"))
+                          , QString(tr("You should open document before saving.")));
+         return;
+     }
+     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+
+     QFile file(file_name);
+     if (!file.open(QFile::WriteOnly | QFile::Truncate))
+         return;
+
+     QTextStream out(&file);
+     out << "<DB>" << Qt::endl;
+     int rows = model->rowCount(QModelIndex());
+     for (int i = 0; i < rows; ++i)
+     {
+         out << model->data(model->index(i, 0), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 1), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 2), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 3), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 4), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 5), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 6), Qt::DisplayRole).toString() << ";"
+             << model->data(model->index(i, 7), Qt::DisplayRole).toString() << ";" << Qt::endl;
+     }
+     file.close();
+     QMessageBox::about(this
+                      , QString(tr("Success!"))
+                      , QString(tr("File is successfuly saved.")));
+}
+
 
 void MainWindow::on_addButton_clicked()
 {
@@ -142,7 +196,7 @@ void MainWindow::on_editButton_clicked()
      {
          QMessageBox::about(this
                           , QString(tr("Warning!"))
-                          , QString(tr("You should open document before deleting.")));
+                          , QString(tr("You should open document before editing.")));
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());

@@ -25,6 +25,7 @@ private slots:
     void about();
     void open();
     void close();
+    void save();
     void on_addButton_clicked();
     void on_deleteButton_clicked();
     void on_editButton_clicked();

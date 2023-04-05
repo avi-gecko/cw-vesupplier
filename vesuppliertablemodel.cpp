@@ -2,6 +2,8 @@
 #include <QApplication>
 #include <QTranslator>
 
+#define FIND_ROLE 69
+
 VesupplierTableModel::~VesupplierTableModel()
 {
     qDeleteAll(m_values->begin(), m_values->end());
@@ -89,21 +91,21 @@ QVariant VesupplierTableModel::headerData(int section, Qt::Orientation orientati
         switch (section)
         {
             case 0:
-                return QString(tr("Name"));
+                return QApplication::translate("VesupplierTableModel", "Name");
             case 1:
-                return QString(tr("OGRN"));
+                return QApplication::translate("VesupplierTableModel", "OGRN");
             case 2:
-                return QString(tr("Address"));
+                return QApplication::translate("VesupplierTableModel", "Address");
             case 3:
-                return QString(tr("Owner name"));
+                return QApplication::translate("VesupplierTableModel", "Owner name");
             case 4:
-                return QString(tr("Phone"));
+                return QApplication::translate("VesupplierTableModel", "Phone");
             case 5:
-                return QString(tr("Product count"));
+                return QApplication::translate("VesupplierTableModel", "Product count");
             case 6:
-                return QString(tr("Post count"));
+                return QApplication::translate("VesupplierTableModel", "Post count");
             case 7:
-                return QString(tr("Price"));
+                return QApplication::translate("VesupplierTableModel", "Price");
         }
     }
     return QVariant();
@@ -163,4 +165,62 @@ bool VesupplierTableModel::setData(const QModelIndex &index, const QVariant &val
 
     emit dataChanged(index, index);
     return true;
+}
+
+QList<Vesupplier*> VesupplierTableModel::find(QString criteria, int column) const
+{
+    QList<Vesupplier*> result;
+    int rows = rowCount(QModelIndex());
+    for (int i = 0; i < rows; ++i)
+    {
+        QVariant value;
+        switch(column)
+        {
+            case 0:
+            {
+               value = m_values->at(i)->getNameOrganization();
+               break;
+            }
+            case 1:
+            {
+               value = m_values->at(i)->getOGRN();
+               break;
+            }
+            case 2:
+            {
+               value = m_values->at(i)->getAddress();
+               break;
+            }
+            case 3:
+            {
+               value = m_values->at(i)->getNameOrganization();
+               break;
+            }
+            case 4:
+            {
+               value = m_values->at(i)->getPhone();
+               break;
+            }
+            case 5:
+            {
+               value = m_values->at(i)->getCountProduct();
+               break;
+            }
+            case 6:
+            {
+               value = m_values->at(i)->getCountPost();
+               break;
+            }
+            case 7:
+            {
+               value = m_values->at(i)->getPrice();
+               break;
+            }
+        }
+        if (value.toString() == criteria)
+        {
+            result.append(m_values->at(i));
+        }
+    }
+    return result;
 }

@@ -1,6 +1,7 @@
 #include "editdialog.h"
 #include "ui_editdialog.h"
 #include "vesuppliertablemodel.h"
+#include <QPushButton>
 
 EditDialog::EditDialog(QWidget *parent, VesupplierTableModel* model, int row) :
     QDialog(parent),
@@ -9,6 +10,8 @@ EditDialog::EditDialog(QWidget *parent, VesupplierTableModel* model, int row) :
     m_row(row)
 {
     ui->setupUi(this);
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(QString(tr("Ok")));
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(QString(tr("Cancel")));
 
     ui->nameLineEdit->setText(model->data(m_model->index(row, 0), Qt::DisplayRole).toString());
     ui->OGRNLineEdit->setText(model->data(m_model->index(row, 1), Qt::DisplayRole).toString());

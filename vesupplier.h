@@ -7,6 +7,7 @@ class Vesupplier
 public:
     ~Vesupplier();
     Vesupplier();
+    Vesupplier(Vesupplier *&copy);
     Vesupplier(QString nameOrganzation
              , QString OGRN
              , QString address

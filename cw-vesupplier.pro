@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     adddialog.cpp \
     editdialog.cpp \
+    finddialog.cpp \
     main.cpp \
     mainwindow.cpp \
     vesupplier.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     adddialog.h \
     editdialog.h \
+    finddialog.h \
     mainwindow.h \
     vesupplier.h \
     vesuppliertablemodel.h
@@ -26,6 +28,7 @@ HEADERS += \
 FORMS += \
     adddialog.ui \
     editdialog.ui \
+    finddialog.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

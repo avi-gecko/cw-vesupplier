@@ -64,6 +64,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="findButton">
+         <property name="text">
+          <string>Find</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="deleteButton">
          <property name="text">
           <string>Delete</string>

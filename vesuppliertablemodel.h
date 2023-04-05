@@ -17,6 +17,7 @@ public:
     void deleteRow(int idx);
     QModelIndex index(int row, int column) const;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    QList<Vesupplier*> find(QString criteria, int column) const;
 private:
     QList<Vesupplier*> *m_values;
 };

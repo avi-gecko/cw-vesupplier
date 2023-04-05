@@ -10,6 +10,18 @@ Vesupplier::Vesupplier()
 
 }
 
+Vesupplier::Vesupplier(Vesupplier *&copy) : m_nameOrganizaton(copy->getNameOrganization())
+                                          , m_OGRN(copy->getOGRN())
+                                          , m_address(copy->getAddress())
+                                          , m_nameOwner(copy->getNameOwner())
+                                          , m_phone(copy->getPhone())
+                                          , m_countProduct(copy->getCountProduct())
+                                          , m_countPost(copy->getCountPost())
+                                          , m_price(copy->getPrice())
+{
+
+}
+
 Vesupplier::Vesupplier(QString nameOrganzation
                      , QString OGRN
                      , QString address

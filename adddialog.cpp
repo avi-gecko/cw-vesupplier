@@ -2,6 +2,7 @@
 #include "ui_adddialog.h"
 #include "vesupplier.h"
 #include "vesuppliertablemodel.h"
+#include <QPushButton>
 
 AddDialog::AddDialog(QWidget *parent, VesupplierTableModel *model) :
     QDialog(parent),
@@ -9,6 +10,8 @@ AddDialog::AddDialog(QWidget *parent, VesupplierTableModel *model) :
     m_model(model)
 {
     ui->setupUi(this);
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(QString(tr("Ok")));
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(QString(tr("Cancel")));
 }
 
 AddDialog::~AddDialog()

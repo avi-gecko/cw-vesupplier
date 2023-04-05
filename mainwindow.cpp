@@ -4,6 +4,7 @@
 #include "vesuppliertablemodel.h"
 #include "adddialog.h"
 #include "editdialog.h"
+#include "finddialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -13,12 +14,19 @@
 #include <QStringList>
 #include <QTableView>
 #include <QSortFilterProxyModel>
+#include <QSettings>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QSettings settings("MGSU", "Database");
+    settings.beginGroup("MainWindowGeometry");
+        resize(settings.value("size").toSize());
+        move(settings.value("position").toPoint());
+    settings.endGroup();
+
     ui->tabWidget->clear();
     connect(ui->about, &QMenu::aboutToShow, this, &MainWindow::about);
     connect(ui->open, &QAction::triggered, this, &MainWindow::open);
@@ -29,6 +37,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    QSettings settings("MGSU", "Database");
+    settings.beginGroup("MainWindowGeometry");
+        settings.setValue("size", size());
+        settings.setValue("position", pos());
+    settings.endGroup();
     delete ui;
 }
 
@@ -114,7 +127,7 @@ void MainWindow::save()
 
 
 
-    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
      if (tab == nullptr)
      {
          QMessageBox::about(this
@@ -123,7 +136,7 @@ void MainWindow::save()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
 
      QFile file(file_name);
      if (!file.open(QFile::WriteOnly | QFile::Truncate))
@@ -153,7 +166,7 @@ void MainWindow::save()
 void MainWindow::on_addButton_clicked()
 {
 
-   QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
     if (tab == nullptr)
     {
         QMessageBox::about(this
@@ -162,7 +175,7 @@ void MainWindow::on_addButton_clicked()
         return;
     }
     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-    VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
     AddDialog addDialog(this, model);
     addDialog.exec();
 }
@@ -170,7 +183,7 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::on_deleteButton_clicked()
 {
-    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
      if (tab == nullptr)
      {
          QMessageBox::about(this
@@ -179,7 +192,7 @@ void MainWindow::on_deleteButton_clicked()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
      QModelIndex index = tab->currentIndex();
      QModelIndex source_index = sort_model->mapToSource(index);
      if (!source_index.isValid())
@@ -200,7 +213,7 @@ void MainWindow::on_editButton_clicked()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = dynamic_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
      QModelIndex index = tab->currentIndex();
      QModelIndex source_index = sort_model->mapToSource(index);
      if (!source_index.isValid())
@@ -208,5 +221,23 @@ void MainWindow::on_editButton_clicked()
      int row = source_index.row();
      EditDialog editDialog(this, model, row);
      editDialog.exec();
+}
+
+
+void MainWindow::on_findButton_clicked()
+{
+     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+     if (tab == nullptr)
+     {
+         QMessageBox::about(this
+                          , QString(tr("Warning!"))
+                          , QString(tr("You should open document before finding.")));
+         return;
+     }
+     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     FindDialog findDialog(this, model);
+     findDialog.exec();
+
 }
 

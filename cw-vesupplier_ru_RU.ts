@@ -48,6 +48,16 @@
         <source>Price</source>
         <translation>Цена</translation>
     </message>
+    <message>
+        <location filename="adddialog.cpp" line="13"/>
+        <source>Ok</source>
+        <translation>Принять</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="14"/>
+        <source>Cancel</source>
+        <translation>Закрыть</translation>
+    </message>
 </context>
 <context>
     <name>EditDialog</name>
@@ -96,6 +106,99 @@
         <source>Price</source>
         <translation>Цена</translation>
     </message>
+    <message>
+        <location filename="editdialog.cpp" line="13"/>
+        <source>Ok</source>
+        <translation>Принять</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="14"/>
+        <source>Cancel</source>
+        <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>FindDialog</name>
+    <message>
+        <location filename="finddialog.ui" line="14"/>
+        <source>Find row</source>
+        <translation>Найти запись</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="22"/>
+        <source>Name</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="29"/>
+        <source>OGRN</source>
+        <translation>ОГРН</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="36"/>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="43"/>
+        <source>Owner name</source>
+        <translation>Имя владельца</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="50"/>
+        <source>Phone</source>
+        <translation>Номер телефона</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="57"/>
+        <source>Product count</source>
+        <translation>Количество товара</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="64"/>
+        <source>Post count</source>
+        <translation>Количество поставок</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="71"/>
+        <source>Price</source>
+        <translation>Цена</translation>
+    </message>
+    <message>
+        <location filename="finddialog.ui" line="82"/>
+        <source>Enter</source>
+        <translation>Ввод</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="18"/>
+        <source>Ok</source>
+        <translation>Принять</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="19"/>
+        <source>Cancel</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="49"/>
+        <source>Warning!</source>
+        <translation>Внимание!</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="50"/>
+        <source>You should choose column before finding.</source>
+        <translation>Вам следует выбрать столбец перед началом поиска.</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="58"/>
+        <source>Not found!</source>
+        <translation>Не найдено!</translation>
+    </message>
+    <message>
+        <location filename="finddialog.cpp" line="59"/>
+        <source>There is none of results.</source>
+        <translation>Нет найденных результатов в таблице.</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -131,106 +234,117 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="69"/>
+        <source>Find</source>
+        <translation>Найти</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="76"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="102"/>
+        <location filename="mainwindow.ui" line="109"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="111"/>
-        <location filename="mainwindow.cpp" line="38"/>
+        <location filename="mainwindow.ui" line="118"/>
+        <location filename="mainwindow.cpp" line="51"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="120"/>
+        <location filename="mainwindow.ui" line="127"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="125"/>
+        <location filename="mainwindow.ui" line="132"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="130"/>
+        <location filename="mainwindow.ui" line="137"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="135"/>
+        <location filename="mainwindow.ui" line="142"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="39"/>
+        <location filename="mainwindow.cpp" line="52"/>
         <source>Created by Alexey Ilin ICTMS 2-5</source>
-        <translation type="unfinished">Создано Алексеем Ильиным ИЦТМС 2-5</translation>
+        <translation>Создано Алексеем Ильиным ИЦТМС 2-5</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="46"/>
+        <location filename="mainwindow.cpp" line="59"/>
         <source>Open file</source>
         <translation>Открытие файла</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="48"/>
+        <location filename="mainwindow.cpp" line="61"/>
         <source>Database (*.db)</source>
-        <translation>База данных</translation>
+        <translation>База данных (*.db)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="62"/>
+        <location filename="mainwindow.cpp" line="75"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="110"/>
-        <location filename="mainwindow.cpp" line="121"/>
-        <location filename="mainwindow.cpp" line="160"/>
-        <location filename="mainwindow.cpp" line="177"/>
-        <location filename="mainwindow.cpp" line="198"/>
+        <location filename="mainwindow.cpp" line="123"/>
+        <location filename="mainwindow.cpp" line="134"/>
+        <location filename="mainwindow.cpp" line="173"/>
+        <location filename="mainwindow.cpp" line="190"/>
+        <location filename="mainwindow.cpp" line="211"/>
+        <location filename="mainwindow.cpp" line="233"/>
         <source>Warning!</source>
         <translation>Внимание!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="111"/>
-        <location filename="mainwindow.cpp" line="122"/>
+        <location filename="mainwindow.cpp" line="124"/>
+        <location filename="mainwindow.cpp" line="135"/>
         <source>You should open document before saving.</source>
         <translation>Вам следует открыть документ перед сохранением.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="148"/>
+        <location filename="mainwindow.cpp" line="161"/>
         <source>Success!</source>
         <translation>Успех!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="149"/>
+        <location filename="mainwindow.cpp" line="162"/>
         <source>File is successfuly saved.</source>
         <translation>Файл успешно сохранён.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="161"/>
+        <location filename="mainwindow.cpp" line="174"/>
         <source>You should open document before adding.</source>
         <translation>Вам следует открыть документ перед добавлением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="178"/>
+        <location filename="mainwindow.cpp" line="191"/>
         <source>You should open document before deleting.</source>
         <translation>Вам следует открыть документ перед удалением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="199"/>
+        <location filename="mainwindow.cpp" line="212"/>
         <source>You should open document before editing.</source>
         <translation>Вам следует открыть документ перед редактированием записи.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="234"/>
+        <source>You should open document before finding.</source>
+        <translation>Вам следует открыть документ перед началом поиска.</translation>
     </message>
     <message>
         <source>Table can&apos;t has columns.</source>
         <translation type="vanished">Таблица не может не иметь столбцов.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="63"/>
+        <location filename="mainwindow.cpp" line="76"/>
         <source>Wrong file format.</source>
         <translation>Неверный формат файла.</translation>
     </message>
@@ -238,17 +352,17 @@
 <context>
     <name>VesupplierTableModel</name>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="92"/>
+        <location filename="vesuppliertablemodel.cpp" line="94"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="94"/>
+        <location filename="vesuppliertablemodel.cpp" line="96"/>
         <source>OGRN</source>
         <translation>ОГРН</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="96"/>
+        <location filename="vesuppliertablemodel.cpp" line="98"/>
         <source>Address</source>
         <translation>Адрес</translation>
     </message>
@@ -257,27 +371,27 @@
         <translation type="vanished">ФИО владельца</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="98"/>
+        <location filename="vesuppliertablemodel.cpp" line="100"/>
         <source>Owner name</source>
         <translation>Имя владельца</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="100"/>
+        <location filename="vesuppliertablemodel.cpp" line="102"/>
         <source>Phone</source>
         <translation>Номер телефона</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="102"/>
+        <location filename="vesuppliertablemodel.cpp" line="104"/>
         <source>Product count</source>
         <translation>Количество товара</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="104"/>
+        <location filename="vesuppliertablemodel.cpp" line="106"/>
         <source>Post count</source>
         <translation>Количество поставок</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="106"/>
+        <location filename="vesuppliertablemodel.cpp" line="108"/>
         <source>Price</source>
         <translation>Цена</translation>
     </message>

@@ -14,49 +14,103 @@
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="30"/>
+        <location filename="adddialog.ui" line="46"/>
+        <location filename="adddialog.cpp" line="69"/>
         <source>OGRN</source>
         <translation>ОГРН</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="40"/>
+        <location filename="adddialog.ui" line="53"/>
+        <source>XXXXXXXXXXXXX</source>
+        <translation>XXXXXXXXXXXXX</translation>
+    </message>
+    <message>
+        <location filename="adddialog.ui" line="60"/>
+        <location filename="adddialog.cpp" line="77"/>
         <source>Address</source>
         <translation>Адрес</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="50"/>
+        <location filename="adddialog.ui" line="67"/>
+        <source>city, street, house, office</source>
+        <translation>город, улица, дом, офис</translation>
+    </message>
+    <message>
+        <location filename="adddialog.ui" line="74"/>
+        <location filename="adddialog.cpp" line="85"/>
         <source>Owner name</source>
         <translation>Имя владельца</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="60"/>
+        <location filename="adddialog.ui" line="81"/>
+        <source>Last name First name Middle name(optional)</source>
+        <translation>Фамилия Имя Отчество(опционально)</translation>
+    </message>
+    <message>
+        <location filename="adddialog.ui" line="88"/>
+        <location filename="adddialog.cpp" line="93"/>
         <source>Phone</source>
         <translation>Номер телефона</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="70"/>
+        <location filename="adddialog.ui" line="95"/>
+        <source>+X(XXX)XXX-XX-XX</source>
+        <translation>+X(XXX)XXX-XX-XX</translation>
+    </message>
+    <message>
+        <location filename="adddialog.ui" line="102"/>
         <source>Product count</source>
         <translation>Количество товара</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="80"/>
+        <location filename="adddialog.ui" line="112"/>
         <source>Post count</source>
         <translation>Количество поставок</translation>
     </message>
     <message>
-        <location filename="adddialog.ui" line="90"/>
+        <location filename="adddialog.ui" line="122"/>
         <source>Price</source>
         <translation>Цена</translation>
     </message>
     <message>
-        <location filename="adddialog.cpp" line="13"/>
+        <location filename="adddialog.cpp" line="18"/>
         <source>Ok</source>
         <translation>Принять</translation>
     </message>
     <message>
-        <location filename="adddialog.cpp" line="14"/>
+        <location filename="adddialog.cpp" line="19"/>
         <source>Cancel</source>
         <translation>Закрыть</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="61"/>
+        <source>Organization name</source>
+        <translation>Название организации</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="62"/>
+        <source>Organization name is required.</source>
+        <translation>Требуется ввести название организации.</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="70"/>
+        <source>OGRN has to contain 13 digits.</source>
+        <translation>ОГРН должен состоять из 13 цифр.</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="78"/>
+        <source>Address should be matched like: city, street, house, office. Without spaces in the end</source>
+        <translation>Адрес должен выглядеть так: город, улица, дом, офис. Без пробела в конце</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="86"/>
+        <source>Owner name should be matched like: Last name *space* First name *space* Middle name &lt;-- optional. Without spaces in the end</source>
+        <translation>Имя владельца должно выглядеть так: Фамилия *пробел* Имя *пробел* Отчество&lt;-- опцонально. Без пробела в конце</translation>
+    </message>
+    <message>
+        <location filename="adddialog.cpp" line="94"/>
+        <source>Phone should be matched like: + or without X(XXX)XXX-XX-XX. Without spaces in the end</source>
+        <translation>Номер телефона должен выглядеть так: + с или без X(XXX)XXX-XX-XX. Без пробела в конце</translation>
     </message>
 </context>
 <context>
@@ -73,48 +127,102 @@
     </message>
     <message>
         <location filename="editdialog.ui" line="30"/>
+        <location filename="editdialog.cpp" line="75"/>
         <source>OGRN</source>
         <translation>ОГРН</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="40"/>
+        <location filename="editdialog.ui" line="37"/>
+        <source>XXXXXXXXXXXXX</source>
+        <translation>XXXXXXXXXXXXX</translation>
+    </message>
+    <message>
+        <location filename="editdialog.ui" line="44"/>
+        <location filename="editdialog.cpp" line="83"/>
         <source>Address</source>
         <translation>Адрес</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="50"/>
+        <location filename="editdialog.ui" line="51"/>
+        <source>city, street, house, office</source>
+        <translation>город, улица, дом, офис</translation>
+    </message>
+    <message>
+        <location filename="editdialog.ui" line="58"/>
+        <location filename="editdialog.cpp" line="91"/>
         <source>Owner name</source>
         <translation>Имя владельца</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="60"/>
+        <location filename="editdialog.ui" line="65"/>
+        <source>Last name First name Middle name(optional)</source>
+        <translation>Фамилия Имя Отчество(опционально)</translation>
+    </message>
+    <message>
+        <location filename="editdialog.ui" line="72"/>
+        <location filename="editdialog.cpp" line="99"/>
         <source>Phone</source>
         <translation>Номер телефона</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="70"/>
+        <location filename="editdialog.ui" line="79"/>
+        <source>+X(XXX)XXX-XX-XX</source>
+        <translation>+X(XXX)XXX-XX-XX</translation>
+    </message>
+    <message>
+        <location filename="editdialog.ui" line="86"/>
         <source>Product count</source>
         <translation>Количество товара</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="80"/>
+        <location filename="editdialog.ui" line="96"/>
         <source>Post count</source>
         <translation>Количество поставок</translation>
     </message>
     <message>
-        <location filename="editdialog.ui" line="90"/>
+        <location filename="editdialog.ui" line="106"/>
         <source>Price</source>
         <translation>Цена</translation>
     </message>
     <message>
-        <location filename="editdialog.cpp" line="13"/>
+        <location filename="editdialog.cpp" line="15"/>
         <source>Ok</source>
         <translation>Принять</translation>
     </message>
     <message>
-        <location filename="editdialog.cpp" line="14"/>
+        <location filename="editdialog.cpp" line="16"/>
         <source>Cancel</source>
         <translation>Закрыть</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="67"/>
+        <source>Organization name</source>
+        <translation>Название организации</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="68"/>
+        <source>Organization name is required.</source>
+        <translation>Требуется ввести название организации.</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="76"/>
+        <source>OGRN has to contain 13 digits.</source>
+        <translation>ОГРН должен состоять из 13 цифр.</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="84"/>
+        <source>Address should be matched like: city, street, house, office. Without spaces in the end</source>
+        <translation>Адрес должен выглядеть так: город, улица, дом, офис. Без пробела в конце</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="92"/>
+        <source>Owner name should be matched like: Last name *space* First name *space* Middle name &lt;-- optional. Without spaces in the end</source>
+        <translation>Имя владельца должно выглядеть так: Фамилия *пробел* Имя *пробел* Отчество&lt;-- опцонально. Без пробела в конце</translation>
+    </message>
+    <message>
+        <location filename="editdialog.cpp" line="100"/>
+        <source>Phone should be matched like: + or without X(XXX)XXX-XX-XX. Without spaces in the end</source>
+        <translation>Номер телефона должен выглядеть так: + с или без X(XXX)XXX-XX-XX. Без пробела в конце</translation>
     </message>
 </context>
 <context>
@@ -204,7 +312,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="14"/>
-        <source>Data base</source>
+        <source>Database</source>
+        <oldsource>Data base</oldsource>
         <translation>База данных</translation>
     </message>
     <message>
@@ -249,7 +358,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="118"/>
-        <location filename="mainwindow.cpp" line="63"/>
+        <location filename="mainwindow.cpp" line="64"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
@@ -293,80 +402,80 @@
         <translation>English</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="64"/>
+        <location filename="mainwindow.cpp" line="65"/>
         <source>Created by Alexey Ilin ICTMS 2-5</source>
         <translation>Создано Алексеем Ильиным ИЦТМС 2-5</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="72"/>
         <source>Open file</source>
         <translation>Открытие файла</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="73"/>
+        <location filename="mainwindow.cpp" line="74"/>
         <source>Database (*.db)</source>
         <translation>База данных (*.db)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="87"/>
+        <location filename="mainwindow.cpp" line="88"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="135"/>
-        <location filename="mainwindow.cpp" line="146"/>
-        <location filename="mainwindow.cpp" line="185"/>
-        <location filename="mainwindow.cpp" line="202"/>
-        <location filename="mainwindow.cpp" line="223"/>
-        <location filename="mainwindow.cpp" line="245"/>
+        <location filename="mainwindow.cpp" line="136"/>
+        <location filename="mainwindow.cpp" line="147"/>
+        <location filename="mainwindow.cpp" line="186"/>
+        <location filename="mainwindow.cpp" line="203"/>
+        <location filename="mainwindow.cpp" line="224"/>
+        <location filename="mainwindow.cpp" line="246"/>
         <source>Warning!</source>
         <translation>Внимание!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="136"/>
-        <location filename="mainwindow.cpp" line="147"/>
+        <location filename="mainwindow.cpp" line="137"/>
+        <location filename="mainwindow.cpp" line="148"/>
         <source>You should open document before saving.</source>
         <translation>Вам следует открыть документ перед сохранением.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="173"/>
+        <location filename="mainwindow.cpp" line="174"/>
         <source>Success!</source>
         <translation>Успех!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="174"/>
+        <location filename="mainwindow.cpp" line="175"/>
         <source>File is successfuly saved.</source>
         <translation>Файл успешно сохранён.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="186"/>
+        <location filename="mainwindow.cpp" line="187"/>
         <source>You should open document before adding.</source>
         <translation>Вам следует открыть документ перед добавлением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="203"/>
+        <location filename="mainwindow.cpp" line="204"/>
         <source>You should open document before deleting.</source>
         <translation>Вам следует открыть документ перед удалением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="224"/>
+        <location filename="mainwindow.cpp" line="225"/>
         <source>You should open document before editing.</source>
         <translation>Вам следует открыть документ перед редактированием записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="246"/>
+        <location filename="mainwindow.cpp" line="247"/>
         <source>You should open document before finding.</source>
         <translation>Вам следует открыть документ перед началом поиска.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="263"/>
-        <location filename="mainwindow.cpp" line="274"/>
+        <location filename="mainwindow.cpp" line="264"/>
+        <location filename="mainwindow.cpp" line="275"/>
         <source>Change language</source>
         <translation>Смена языка</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="264"/>
-        <location filename="mainwindow.cpp" line="275"/>
+        <location filename="mainwindow.cpp" line="265"/>
+        <location filename="mainwindow.cpp" line="276"/>
         <source>Changes will be applied after restart.</source>
         <translation>Изменения будут применены после перезапуска.</translation>
     </message>
@@ -375,7 +484,7 @@
         <translation type="vanished">Таблица не может не иметь столбцов.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="88"/>
+        <location filename="mainwindow.cpp" line="89"/>
         <source>Wrong file format.</source>
         <translation>Неверный формат файла.</translation>
     </message>

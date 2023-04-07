@@ -68,12 +68,12 @@ void Vesupplier::setPhone(const QString phone)
     m_phone = phone;
 }
 
-void Vesupplier::setCountProduct(const unsigned int countProduct)
+void Vesupplier::setCountProduct(const int countProduct)
 {
     m_countProduct = countProduct;
 }
 
-void Vesupplier::setCountPost(const unsigned int countPost)
+void Vesupplier::setCountPost(const int countPost)
 {
     m_countPost = countPost;
 }

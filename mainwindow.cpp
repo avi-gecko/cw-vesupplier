@@ -28,8 +28,9 @@ MainWindow::MainWindow(QWidget *parent)
     settings.endGroup();
     settings.beginGroup("Language");
         m_lang = settings.value("lang", QVariant("ru_RU")).toString();
+        m_locale = QLocale(m_lang);
+        QLocale::setDefault(m_locale);
     settings.endGroup();
-
     const QString baseName = "cw-vesupplier_";
     if (m_translator.load(":/i18n/" + baseName + m_lang, ":/translations"))
     {
@@ -107,8 +108,8 @@ void MainWindow::open()
                                              , splitted.at(2)
                                              , splitted.at(3)
                                              , splitted.at(4)
-                                             , splitted.at(5).toUInt()
-                                             , splitted.at(6).toUInt()
+                                             , splitted.at(5).toInt()
+                                             , splitted.at(6).toInt()
                                              , splitted.at(7).toDouble());
          model->append(new_item);
     }

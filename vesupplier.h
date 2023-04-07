@@ -22,8 +22,8 @@ public:
     void setAddress(const QString address);
     void setNameOwner(const QString nameOwner);
     void setPhone(const QString phone);
-    void setCountProduct(const unsigned int countProduct);
-    void setCountPost(const unsigned int countProduct);
+    void setCountProduct(const int countProduct);
+    void setCountPost(const int countProduct);
     void setPrice(const double price);
 
     QString getNameOrganization() const;
@@ -41,9 +41,9 @@ private:
     QString m_address;
     QString m_nameOwner;
     QString m_phone;
-    unsigned int m_countProduct;
-    unsigned int m_countPost;
-    unsigned int m_price;
+    int m_countProduct;
+    int m_countPost;
+    double m_price;
 };
 
 #endif // VESUPPLIER_H

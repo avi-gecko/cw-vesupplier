@@ -23,6 +23,7 @@ private:
     Ui::MainWindow *ui;
     QTranslator m_translator;
     QString m_lang;
+    QLocale m_locale;
 
 private slots:
     void about();

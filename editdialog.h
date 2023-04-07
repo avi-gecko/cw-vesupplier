@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "vesuppliertablemodel.h"
+#include <QRegularExpressionValidator>
 
 namespace Ui {
 class EditDialog;
@@ -24,6 +25,13 @@ private slots:
 private:
     Ui::EditDialog *ui;
     VesupplierTableModel *m_model;
+    QRegularExpressionValidator *m_nameOrganizationValidator;
+    QRegularExpressionValidator *m_OGRNValidator;
+    QRegularExpressionValidator *m_addressValidator;
+    QRegularExpressionValidator *m_nameOwnerValidator;
+    QRegularExpressionValidator *m_phoneValidator;
+    QIntValidator *m_intValidator;
+    QDoubleValidator *m_doubleValidator;
     int m_row;
 };
 

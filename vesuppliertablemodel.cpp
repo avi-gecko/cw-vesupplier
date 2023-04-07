@@ -54,7 +54,7 @@ QVariant VesupplierTableModel::data(const QModelIndex &index, int role) const
                 }
                 case 3:
                 {
-                   value = m_values->at(index.row())->getNameOrganization();
+                   value = m_values->at(index.row())->getNameOwner();
                    break;
                 }
                 case 4:
@@ -158,8 +158,8 @@ bool VesupplierTableModel::setData(const QModelIndex &index, const QVariant &val
         case 2: m_values->at(row)->setAddress(value.toString()); break;
         case 3: m_values->at(row)->setNameOwner(value.toString()); break;
         case 4: m_values->at(row)->setPhone(value.toString()); break;
-        case 5: m_values->at(row)->setCountProduct(value.toUInt()); break;
-        case 6: m_values->at(row)->setCountPost(value.toUInt()); break;
+        case 5: m_values->at(row)->setCountProduct(value.toInt()); break;
+        case 6: m_values->at(row)->setCountPost(value.toInt()); break;
         case 7: m_values->at(row)->setPrice(value.toDouble());
     }
 

@@ -32,7 +32,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="OGRNLineEdit"/>
+    <widget class="QLineEdit" name="OGRNLineEdit">
+     <property name="placeholderText">
+      <string>XXXXXXXXXXXXX</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="addressLabel">
@@ -42,7 +46,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="addressLineEdit"/>
+    <widget class="QLineEdit" name="addressLineEdit">
+     <property name="placeholderText">
+      <string>city, street, house, office</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="nameOwnerLabel">
@@ -52,7 +60,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="nameOwnerLineEdit"/>
+    <widget class="QLineEdit" name="nameOwnerLineEdit">
+     <property name="placeholderText">
+      <string>Last name First name Middle name(optional)</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="phoneLabel">
@@ -62,7 +74,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="phoneLineEdit"/>
+    <widget class="QLineEdit" name="phoneLineEdit">
+     <property name="placeholderText">
+      <string>+X(XXX)XXX-XX-XX</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="countProductLabel">

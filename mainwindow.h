@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QAbstractItemModel>
+#include <QTranslator>
 #include "adddialog.h"
 #include "editdialog.h"
 
@@ -20,6 +21,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QTranslator m_translator;
+    QString m_lang;
 
 private slots:
     void about();
@@ -30,5 +33,7 @@ private slots:
     void on_deleteButton_clicked();
     void on_editButton_clicked();
     void on_findButton_clicked();
+    void changeLangToRussian();
+    void changeLangToEnglish();
 };
 #endif // MAINWINDOW_H

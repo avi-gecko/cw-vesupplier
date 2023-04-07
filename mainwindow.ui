@@ -118,7 +118,15 @@
      <string>About</string>
     </property>
    </widget>
+   <widget class="QMenu" name="language">
+    <property name="title">
+     <string>Language</string>
+    </property>
+    <addaction name="russian"/>
+    <addaction name="english"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="language"/>
    <addaction name="about"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -140,6 +148,36 @@
   <action name="save">
    <property name="text">
     <string>Save</string>
+   </property>
+  </action>
+  <action name="setRussian">
+   <property name="text">
+    <string>Russian</string>
+   </property>
+  </action>
+  <action name="setEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionRussian">
+   <property name="text">
+    <string>Russian</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="russian">
+   <property name="text">
+    <string>Russian</string>
+   </property>
+  </action>
+  <action name="english">
+   <property name="text">
+    <string>English</string>
    </property>
   </action>
  </widget>

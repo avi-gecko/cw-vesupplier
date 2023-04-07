@@ -26,6 +26,16 @@ MainWindow::MainWindow(QWidget *parent)
         resize(settings.value("size").toSize());
         move(settings.value("position").toPoint());
     settings.endGroup();
+    settings.beginGroup("Language");
+        m_lang = settings.value("lang", QVariant("ru_RU")).toString();
+    settings.endGroup();
+
+    const QString baseName = "cw-vesupplier_";
+    if (m_translator.load(":/i18n/" + baseName + m_lang, ":/translations"))
+    {
+        qApp->installTranslator(&m_translator);
+        ui->retranslateUi(this);
+    }
 
     ui->tabWidget->clear();
     connect(ui->about, &QMenu::aboutToShow, this, &MainWindow::about);
@@ -33,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::close);
     connect(ui->close, &QAction::triggered, this, &MainWindow::close);
     connect(ui->save, &QAction::triggered, this, &MainWindow::save);
+    connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
+    connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
 }
 
 MainWindow::~MainWindow()
@@ -239,5 +251,27 @@ void MainWindow::on_findButton_clicked()
      FindDialog findDialog(this, model);
      findDialog.exec();
 
+}
+
+void MainWindow::changeLangToRussian()
+{
+    QSettings settings("MGSU", "Database");
+    settings.beginGroup("Language");
+        settings.setValue("lang", QVariant("ru_RU"));
+    settings.endGroup();
+    QMessageBox::about(this
+                     , QString(tr("Change language"))
+                       , QString(tr("Changes will be applied after restart.")));
+}
+
+void MainWindow::changeLangToEnglish()
+{
+    QSettings settings("MGSU", "Database");
+    settings.beginGroup("Language");
+        settings.setValue("lang", QVariant("en_US"));
+    settings.endGroup();
+    QMessageBox::about(this
+                     , QString(tr("Change language"))
+                       , QString(tr("Changes will be applied after restart.")));
 }
 

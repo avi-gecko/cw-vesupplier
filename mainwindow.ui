@@ -77,6 +77,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="graphicsButton">
+         <property name="text">
+          <string>Graphics</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="deleteButton">
          <property name="text">
           <string>Delete</string>

@@ -5,6 +5,7 @@
 #include "adddialog.h"
 #include "editdialog.h"
 #include "finddialog.h"
+#include "graphicsdialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -340,5 +341,34 @@ void MainWindow::changeLangToEnglish()
     QMessageBox::about(this
                      , QString(tr("Change language"))
                        , QString(tr("Changes will be applied after restart.")));
+}
+
+
+void MainWindow::on_graphicsButton_clicked()
+{
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+    if (tab == nullptr)
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before making graphics.")));
+        return;
+    }
+    QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    QModelIndex index = tab->currentIndex();
+    QModelIndex source_index = sort_model->mapToSource(index);
+    if (!source_index.isValid())
+        return;
+    int column = source_index.column();
+    if (column < 5)
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You can't make graphics from text values.")));
+        return;
+    }
+    GraphicsDialog graphicsDialog(this, model, column);
+    graphicsDialog.exec();
 }
 

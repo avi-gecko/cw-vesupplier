@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GraphicsDialog</class>
+ <widget class="QDialog" name="GraphicsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>595</width>
+    <height>501</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graphics</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

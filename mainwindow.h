@@ -38,5 +38,6 @@ private slots:
     void on_findButton_clicked();
     void changeLangToRussian();
     void changeLangToEnglish();
+    void on_graphicsButton_clicked();
 };
 #endif // MAINWINDOW_H

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core charts gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,6 +12,7 @@ SOURCES += \
     adddialog.cpp \
     editdialog.cpp \
     finddialog.cpp \
+    graphicsdialog.cpp \
     main.cpp \
     mainwindow.cpp \
     vesupplier.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     adddialog.h \
     editdialog.h \
     finddialog.h \
+    graphicsdialog.h \
     mainwindow.h \
     vesupplier.h \
     vesuppliertablemodel.h
@@ -29,6 +31,7 @@ FORMS += \
     adddialog.ui \
     editdialog.ui \
     finddialog.ui \
+    graphicsdialog.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

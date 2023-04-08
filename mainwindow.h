@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QAbstractItemModel>
 #include <QTranslator>
+#include <QMenu>
 #include "adddialog.h"
 #include "editdialog.h"
 
@@ -19,6 +20,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void dragEnterEvent(QDragEnterEvent *e) override;
     void dropEvent(QDropEvent *e) override;
+    void contextMenuEvent(QContextMenuEvent *e) override;
     ~MainWindow();
 
 private:
@@ -26,6 +28,7 @@ private:
     QTranslator m_translator;
     QString m_lang;
     QLocale m_locale;
+    QMenu m_menu;
 
 private slots:
     void about();

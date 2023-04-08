@@ -22,6 +22,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , m_menu(QMenu(this))
 {
     ui->setupUi(this);
     QSettings settings("MGSU", "Database");
@@ -42,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     ui->tabWidget->clear();
+    setAcceptDrops(true);
+    QAction* action = m_menu.addAction(QString(tr("About")));
+
+    connect(action, &QAction::triggered, this, &MainWindow::about);
     connect(ui->about, &QMenu::aboutToShow, this, &MainWindow::about);
     connect(ui->open, &QAction::triggered, this, &MainWindow::open);
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::close);
@@ -49,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->save, &QAction::triggered, this, &MainWindow::save);
     connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
     connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
-    setAcceptDrops(true);
+
 }
 
 void MainWindow::MainWindow::dragEnterEvent(QDragEnterEvent *e)
@@ -113,6 +118,11 @@ void MainWindow::dropEvent(QDropEvent *e)
         ui->tabWidget->addTab(new_table, file_name);
         file.close();
     }
+}
+
+void MainWindow::contextMenuEvent(QContextMenuEvent *e)
+{
+    m_menu.exec(e->globalPos());
 }
 
 MainWindow::~MainWindow()

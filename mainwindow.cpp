@@ -15,6 +15,8 @@
 #include <QTableView>
 #include <QSortFilterProxyModel>
 #include <QSettings>
+#include <QDragEnterEvent>
+#include <QMimeData>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -46,6 +48,70 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->save, &QAction::triggered, this, &MainWindow::save);
     connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
     connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
+    setAcceptDrops(true);
+}
+
+void MainWindow::MainWindow::dragEnterEvent(QDragEnterEvent *e)
+{
+    if (e->mimeData()->hasUrls())
+    {
+        e->acceptProposedAction();
+    }
+}
+
+void MainWindow::dropEvent(QDropEvent *e)
+{
+    QList<QString> file_names;
+    foreach (const QUrl &url, e->mimeData()->urls())
+    {
+        file_names.append(url.toLocalFile());
+    }
+    foreach (QString file_name, file_names)
+    {
+        QFile file(file_name);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+
+        QTextStream in(&file);
+        QString header;
+        header = in.readLine();
+
+
+        if (header != QString("<DB>"))
+        {
+
+            QMessageBox::critical(this
+                                , QString(tr("Error!"))
+                                , QString(tr("Wrong file format.")) + QString("\n") + file_name);
+            file.close();
+            return;
+        }
+
+        //Создание таблицы
+        QTableView* new_table =  new QTableView(ui->tabWidget);
+        new_table->setSortingEnabled(true);
+        VesupplierTableModel* model = new VesupplierTableModel(new_table);
+        QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
+        sort_model->setSourceModel(model);
+        while (!in.atEnd())
+        {
+             QString result = in.readLine();
+             QList splitted = result.split(QString(";"));
+
+             Vesupplier* new_item = new Vesupplier(splitted.at(0)
+                                                 , splitted.at(1)
+                                                 , splitted.at(2)
+                                                 , splitted.at(3)
+                                                 , splitted.at(4)
+                                                 , splitted.at(5).toInt()
+                                                 , splitted.at(6).toInt()
+                                                 , splitted.at(7).toDouble());
+             model->append(new_item);
+        }
+        new_table->setModel(sort_model);
+        ui->tabWidget->addTab(new_table, file_name);
+        file.close();
+    }
 }
 
 MainWindow::~MainWindow()

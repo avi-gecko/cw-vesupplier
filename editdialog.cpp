@@ -93,7 +93,7 @@ void EditDialog::on_buttonBox_accepted()
         return;
     }
     QString phone = ui->phoneLineEdit->text();
-    if (m_nameOwnerValidator->validate(nameOwner, pos) != QValidator::Acceptable)
+    if (m_nameOwnerValidator->validate(phone, pos) != QValidator::Acceptable)
     {
         QMessageBox::about(this
                          , QString(tr("Phone"))

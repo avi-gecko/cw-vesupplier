@@ -337,9 +337,12 @@ void MainWindow::changeLangToRussian()
     settings.beginGroup("Language");
         settings.setValue("lang", QVariant("ru_RU"));
     settings.endGroup();
-    QMessageBox::about(this
-                     , QString(tr("Change language"))
-                       , QString(tr("Changes will be applied after restart.")));
+    const QString baseName = "cw-vesupplier_";
+    if (m_translator.load(":/i18n/" + baseName + "ru_RU", ":/translations"))
+    {
+        qApp->installTranslator(&m_translator);
+        ui->retranslateUi(this);
+    }
 }
 
 void MainWindow::changeLangToEnglish()
@@ -348,9 +351,12 @@ void MainWindow::changeLangToEnglish()
     settings.beginGroup("Language");
         settings.setValue("lang", QVariant("en_US"));
     settings.endGroup();
-    QMessageBox::about(this
-                     , QString(tr("Change language"))
-                       , QString(tr("Changes will be applied after restart.")));
+    const QString baseName = "cw-vesupplier_";
+    if (m_translator.load(":/i18n/" + baseName + "ru_RU", ":/translations"))
+    {
+        qApp->removeTranslator(&m_translator);
+        ui->retranslateUi(this);
+    }
 }
 
 

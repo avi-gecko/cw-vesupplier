@@ -123,6 +123,7 @@
     </property>
     <addaction name="open"/>
     <addaction name="save"/>
+    <addaction name="print"/>
     <addaction name="close"/>
     <addaction name="exit"/>
    </widget>
@@ -191,6 +192,11 @@
   <action name="english">
    <property name="text">
     <string>English</string>
+   </property>
+  </action>
+  <action name="print">
+   <property name="text">
+    <string>Print</string>
    </property>
   </action>
  </widget>

@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->save, &QAction::triggered, this, &MainWindow::save);
     connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
     connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
+    connect(ui->print, &QAction::triggered, this, &MainWindow::print);
 
 }
 
@@ -249,7 +250,93 @@ void MainWindow::save()
      file.close();
      QMessageBox::about(this
                       , QString(tr("Success!"))
-                      , QString(tr("File is successfuly saved.")));
+                        , QString(tr("File is successfuly saved.")));
+}
+
+void MainWindow::print()
+{
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+    if (tab == nullptr)
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before printing.")));
+        return;
+    }
+    QPrinter printer(QPrinter::PrinterResolution);
+    QPrintDialog *printDialog = new QPrintDialog(&printer);
+    printer.setFullPage(true);
+
+    if (printDialog->exec() == QDialog::Accepted)
+    {
+        QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+        VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+        QString strStream;
+        QTextStream out(&strStream);
+        out << "<html>\n"
+            << "<header>\n"
+            << "</header>\n"
+            << "<body>\n"
+            << "<table border=1>\n"
+            << "<thead>\n"
+            << "<tr>\n";
+        int columns = 8;
+        for (int i = 0; i < columns; ++i)
+        {
+            out << "<td>"
+                <<  model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString()
+                << "</td>\n";
+        }
+        out << "</tr>\n"
+            << "</thead>\n"
+            << "<tbody>\n";
+        int rows = model->rowCount(QModelIndex());
+        for (int i = 0; i < rows; ++i)
+        {
+            out << "<tr>\n"
+                << "<td>"
+                << model->data(model->index(i, 0), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 1), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 2), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 3), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 4), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 5), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 6), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "<td>"
+                << model->data(model->index(i, 7), Qt::DisplayRole).toString()
+                << "</td>\n"
+                << "</td>\n"
+                << "</tr>\n";
+        }
+        out << "</tbody>\n"
+            << "</table>\n"
+            << "</html>";
+        QTextDocument document;
+        qDebug() << strStream;
+        document.setHtml(strStream);
+        document.print(&printer);
+    }
+    delete printDialog;
 }
 
 

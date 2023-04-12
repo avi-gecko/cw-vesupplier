@@ -5,6 +5,10 @@
 #include <QAbstractItemModel>
 #include <QTranslator>
 #include <QMenu>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QPainter>
+#include <QTextDocument>
 #include "adddialog.h"
 #include "editdialog.h"
 
@@ -35,6 +39,7 @@ private slots:
     void open();
     void close();
     void save();
+    void print();
     void on_addButton_clicked();
     void on_deleteButton_clicked();
     void on_editButton_clicked();

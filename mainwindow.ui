@@ -122,6 +122,8 @@
      <string>File</string>
     </property>
     <addaction name="open"/>
+    <addaction name="binaryOpen"/>
+    <addaction name="binarySave"/>
     <addaction name="save"/>
     <addaction name="print"/>
     <addaction name="close"/>
@@ -197,6 +199,16 @@
   <action name="print">
    <property name="text">
     <string>Print</string>
+   </property>
+  </action>
+  <action name="binarySave">
+   <property name="text">
+    <string>Binary save</string>
+   </property>
+  </action>
+  <action name="binaryOpen">
+   <property name="text">
+    <string>Binary open</string>
    </property>
   </action>
  </widget>

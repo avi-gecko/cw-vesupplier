@@ -370,128 +370,145 @@
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="132"/>
+        <location filename="mainwindow.ui" line="134"/>
         <location filename="mainwindow.cpp" line="47"/>
-        <location filename="mainwindow.cpp" line="142"/>
+        <location filename="mainwindow.cpp" line="144"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="137"/>
+        <location filename="mainwindow.ui" line="139"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="149"/>
+        <location filename="mainwindow.ui" line="151"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="154"/>
+        <location filename="mainwindow.ui" line="156"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="159"/>
+        <location filename="mainwindow.ui" line="161"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="164"/>
+        <location filename="mainwindow.ui" line="166"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="169"/>
-        <location filename="mainwindow.ui" line="179"/>
-        <location filename="mainwindow.ui" line="189"/>
+        <location filename="mainwindow.ui" line="171"/>
+        <location filename="mainwindow.ui" line="181"/>
+        <location filename="mainwindow.ui" line="191"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="174"/>
-        <location filename="mainwindow.ui" line="184"/>
-        <location filename="mainwindow.ui" line="194"/>
+        <location filename="mainwindow.ui" line="176"/>
+        <location filename="mainwindow.ui" line="186"/>
+        <location filename="mainwindow.ui" line="196"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="199"/>
+        <location filename="mainwindow.ui" line="201"/>
         <source>Print</source>
         <translation>Печать</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="143"/>
+        <location filename="mainwindow.ui" line="206"/>
+        <source>Binary save</source>
+        <translation>Бинарное сохранение</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="211"/>
+        <source>Binary open</source>
+        <translation>Бинарное открытие</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="145"/>
         <source>Created by Alexey Ilin ICTMS 2-5</source>
         <translation>Создано Алексеем Ильиным ИЦТМС 2-5</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="150"/>
+        <location filename="mainwindow.cpp" line="152"/>
+        <location filename="mainwindow.cpp" line="347"/>
         <source>Open file</source>
         <translation>Открытие файла</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="152"/>
+        <location filename="mainwindow.cpp" line="154"/>
+        <location filename="mainwindow.cpp" line="349"/>
         <source>Database (*.db)</source>
         <translation>База данных (*.db)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="91"/>
-        <location filename="mainwindow.cpp" line="166"/>
+        <location filename="mainwindow.cpp" line="93"/>
+        <location filename="mainwindow.cpp" line="168"/>
+        <location filename="mainwindow.cpp" line="361"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="214"/>
-        <location filename="mainwindow.cpp" line="225"/>
-        <location filename="mainwindow.cpp" line="262"/>
-        <location filename="mainwindow.cpp" line="350"/>
-        <location filename="mainwindow.cpp" line="367"/>
-        <location filename="mainwindow.cpp" line="388"/>
-        <location filename="mainwindow.cpp" line="410"/>
-        <location filename="mainwindow.cpp" line="456"/>
-        <location filename="mainwindow.cpp" line="470"/>
+        <location filename="mainwindow.cpp" line="216"/>
+        <location filename="mainwindow.cpp" line="227"/>
+        <location filename="mainwindow.cpp" line="264"/>
+        <location filename="mainwindow.cpp" line="406"/>
+        <location filename="mainwindow.cpp" line="414"/>
+        <location filename="mainwindow.cpp" line="450"/>
+        <location filename="mainwindow.cpp" line="467"/>
+        <location filename="mainwindow.cpp" line="488"/>
+        <location filename="mainwindow.cpp" line="510"/>
+        <location filename="mainwindow.cpp" line="556"/>
+        <location filename="mainwindow.cpp" line="570"/>
         <source>Warning!</source>
         <translation>Внимание!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="215"/>
-        <location filename="mainwindow.cpp" line="226"/>
+        <location filename="mainwindow.cpp" line="217"/>
+        <location filename="mainwindow.cpp" line="228"/>
+        <location filename="mainwindow.cpp" line="407"/>
         <source>You should open document before saving.</source>
         <translation>Вам следует открыть документ перед сохранением.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="252"/>
+        <location filename="mainwindow.cpp" line="254"/>
         <source>Success!</source>
         <translation>Успех!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="253"/>
+        <location filename="mainwindow.cpp" line="255"/>
         <source>File is successfuly saved.</source>
         <translation>Файл успешно сохранён.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="263"/>
+        <location filename="mainwindow.cpp" line="265"/>
         <source>You should open document before printing.</source>
         <translation>Вам следует открыть документ перед печатью.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="351"/>
+        <location filename="mainwindow.cpp" line="415"/>
+        <location filename="mainwindow.cpp" line="451"/>
         <source>You should open document before adding.</source>
         <translation>Вам следует открыть документ перед добавлением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="368"/>
+        <location filename="mainwindow.cpp" line="468"/>
         <source>You should open document before deleting.</source>
         <translation>Вам следует открыть документ перед удалением записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="389"/>
+        <location filename="mainwindow.cpp" line="489"/>
         <source>You should open document before editing.</source>
         <translation>Вам следует открыть документ перед редактированием записи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="411"/>
+        <location filename="mainwindow.cpp" line="511"/>
         <source>You should open document before finding.</source>
         <translation>Вам следует открыть документ перед началом поиска.</translation>
     </message>
@@ -504,12 +521,12 @@
         <translation type="vanished">Изменения будут применены после перезапуска.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="457"/>
+        <location filename="mainwindow.cpp" line="557"/>
         <source>You should open document before making graphics.</source>
         <translation>Вам следует открыть документ перед построением графиков.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="471"/>
+        <location filename="mainwindow.cpp" line="571"/>
         <source>You can&apos;t make graphics from text values.</source>
         <translation>Вы не можете построить график, используя текстовые значения.</translation>
     </message>
@@ -518,8 +535,9 @@
         <translation type="vanished">Таблица не может не иметь столбцов.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="92"/>
-        <location filename="mainwindow.cpp" line="167"/>
+        <location filename="mainwindow.cpp" line="94"/>
+        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="362"/>
         <source>Wrong file format.</source>
         <translation>Неверный формат файла.</translation>
     </message>

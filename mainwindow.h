@@ -40,6 +40,8 @@ private slots:
     void close();
     void save();
     void print();
+    void binaryOpen();
+    void binarySave();
     void on_addButton_clicked();
     void on_deleteButton_clicked();
     void on_editButton_clicked();

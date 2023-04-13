@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
     setAcceptDrops(true);
     QAction* action = m_menu.addAction(QString(tr("About")));
 
+    connect(ui->binaryOpen, &QAction::triggered, this, &MainWindow::binaryOpen);
+    connect(ui->binarySave, &QAction::triggered, this, &MainWindow::binarySave);
     connect(action, &QAction::triggered, this, &MainWindow::about);
     connect(ui->about, &QMenu::aboutToShow, this, &MainWindow::about);
     connect(ui->open, &QAction::triggered, this, &MainWindow::open);
@@ -337,6 +339,107 @@ void MainWindow::print()
         document.print(&printer);
     }
     delete printDialog;
+}
+
+void MainWindow::binaryOpen()
+{
+    QString file_name = QFileDialog::getOpenFileName(this
+                                                   , QString(tr("Open file"))
+                                                   , QDir::homePath()
+                                                   , QString(tr("Database (*.db)")));
+    QFile file(file_name);
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+
+    QDataStream in(&file);
+    QString header;
+    in >> header;
+    if (header != QString("<DB>"))
+    {
+
+        QMessageBox::critical(this
+                            , QString(tr("Error!"))
+                            , QString(tr("Wrong file format.")));
+        file.close();
+        return;
+    }
+    QTableView* new_table =  new QTableView(ui->tabWidget);
+    new_table->setSortingEnabled(true);
+    VesupplierTableModel* model = new VesupplierTableModel(new_table);
+    QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
+    sort_model->setSourceModel(model);
+
+    int row_count;
+    int column_count;
+    in >> row_count >> column_count;
+
+    for (int row = 0; row < row_count; ++row)
+    {
+        QVariant data[column_count];
+        for (int column = 0; column < column_count; ++column)
+        {
+            in >> data[column];
+        }
+        Vesupplier* new_item = new Vesupplier(data[0].toString()
+                                            , data[1].toString()
+                                            , data[2].toString()
+                                            , data[3].toString()
+                                            , data[4].toString()
+                                            , data[5].toInt()
+                                            , data[6].toInt()
+                                            , data[7].toDouble());
+        model->append(new_item);
+    }
+    new_table->setModel(sort_model);
+    ui->tabWidget->addTab(new_table, file_name);
+    file.close();
+}
+
+void MainWindow::binarySave()
+{
+    QString file_name;
+    if (ui->tabWidget->currentIndex() != -1)
+        file_name = ui->tabWidget->tabText(ui->tabWidget->currentIndex());
+    else
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before saving.")));
+        return;
+    }
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
+    if (tab == nullptr)
+    {
+        QMessageBox::about(this
+                         , QString(tr("Warning!"))
+                         , QString(tr("You should open document before adding.")));
+        return;
+    }
+    QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
+    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+
+    QFile file(file_name);
+    if (!file.open(QFile::WriteOnly | QFile::Truncate))
+        return;
+
+    QDataStream out(&file);
+    out << QString("<DB>");
+    int row_count = model->rowCount(QModelIndex());
+    int column_count = model->columnCount(QModelIndex());
+
+    out << row_count << column_count;
+    for (int row = 0; row < row_count; ++row)
+    {
+        for (int column = 0; column < column_count; ++column)
+        {
+            out << model->data(model->index(row, column), Qt::DisplayRole);
+        }
+    }
+
+    file.close();
+    QMessageBox::about(this
+                     , QString(tr("Success!"))
+                       , QString(tr("File is successfuly saved.")));
 }
 
 

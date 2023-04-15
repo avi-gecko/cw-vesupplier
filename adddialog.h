@@ -3,8 +3,15 @@
 
 #include <QDialog>
 #include <QAbstractItemModel>
-#include "vesuppliertablemodel.h"
+#include <QPushButton>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QValidator>
+#include <QMessageBox>
+#include <QSettings>
+
+#include "vesupplier.h"
+#include "vesuppliermodel.h"
 
 namespace Ui {
 class AddDialog;
@@ -15,12 +22,12 @@ class AddDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddDialog(QWidget *parent = nullptr, VesupplierTableModel *model = nullptr);
+    explicit AddDialog(QWidget *parent = nullptr, VesupplierModel *model = nullptr);
     ~AddDialog();
 
 private:
     Ui::AddDialog *ui;
-    VesupplierTableModel *m_model;
+    VesupplierModel *m_model;
     QRegularExpressionValidator *m_nameOrganizationValidator;
     QRegularExpressionValidator *m_OGRNValidator;
     QRegularExpressionValidator *m_addressValidator;

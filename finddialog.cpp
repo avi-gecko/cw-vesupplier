@@ -1,11 +1,14 @@
 #include "finddialog.h"
 #include "ui_finddialog.h"
-#include <QMessageBox>
-#include <QTableView>
-#include <QSortFilterProxyModel>
-#include <QPushButton>
 
-FindDialog::FindDialog(QWidget *parent, VesupplierTableModel *model) :
+/*!
+ * \brief FindDialog::FindDialog
+ * \param parent
+ * \param model
+ *
+ * Конструктор окна поиска. Добавление флагов RadioButton в ассоциативную группу
+ */
+FindDialog::FindDialog(QWidget *parent, VesupplierModel *model) :
     QDialog(parent),
     ui(new Ui::FindDialog),
     m_model(model),
@@ -35,6 +38,11 @@ FindDialog::~FindDialog()
     delete ui;
 }
 
+/*!
+ * \brief FindDialog::on_buttonBox_accepted
+ *
+ * Поиск данных и создание таблицы результатов
+ */
 void FindDialog::on_buttonBox_accepted()
 {
     if (m_newTable)
@@ -61,7 +69,7 @@ void FindDialog::on_buttonBox_accepted()
     }
     m_newTable =  new QTableView(this);
     m_newTable->setSortingEnabled(true);
-    m_newModel = new VesupplierTableModel(m_newTable);
+    m_newModel = new VesupplierModel(m_newTable);
     m_newSortModel = new QSortFilterProxyModel(m_newTable);
     m_newSortModel->setSourceModel(m_newModel);
     int rows = result.size();

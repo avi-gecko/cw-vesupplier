@@ -1,7 +1,15 @@
 #include "graphicsdialog.h"
 #include "ui_graphicsdialog.h"
 
-GraphicsDialog::GraphicsDialog(QWidget *parent, VesupplierTableModel *model, int column) :
+/*!
+ * \brief GraphicsDialog::GraphicsDialog
+ * \param parent
+ * \param model
+ * \param column
+ *
+ * Конструктор графика. Получение данных из модели и построение графика
+ */
+GraphicsDialog::GraphicsDialog(QWidget *parent, VesupplierModel *model, int column) :
     QDialog(parent),
     ui(new Ui::GraphicsDialog),
     m_model(model),

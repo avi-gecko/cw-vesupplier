@@ -1,30 +1,22 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "vesupplier.h"
-#include "vesuppliertablemodel.h"
-#include "adddialog.h"
-#include "editdialog.h"
-#include "finddialog.h"
-#include "graphicsdialog.h"
 
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QString>
-#include <QFile>
-#include <QTextStream>
-#include <QStringList>
-#include <QTableView>
-#include <QSortFilterProxyModel>
-#include <QSettings>
-#include <QDragEnterEvent>
-#include <QMimeData>
-
+/*!
+ * \brief MainWindow::MainWindow
+ * \param parent
+ *
+ * Конструктор главного окна, применяются настройки расположение и размера окна,
+ * язык и локаль.
+ * Ставится соответствующий язык.
+ * Соединяются функиональные элементы.
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_menu(QMenu(this))
 {
     ui->setupUi(this);
+
     QSettings settings("MGSU", "Database");
     settings.beginGroup("MainWindowGeometry");
         resize(settings.value("size").toSize());
@@ -35,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
         m_locale = QLocale(m_lang);
         QLocale::setDefault(m_locale);
     settings.endGroup();
+
     const QString baseName = "cw-vesupplier_";
     if (m_translator.load(":/i18n/" + baseName + m_lang, ":/translations"))
     {
@@ -42,9 +35,9 @@ MainWindow::MainWindow(QWidget *parent)
         ui->retranslateUi(this);
     }
 
-    ui->tabWidget->clear();
-    setAcceptDrops(true);
-    QAction* action = m_menu.addAction(QString(tr("About")));
+    ui->tabWidget->clear(); ///< Удаление стандартных вкладок
+    setAcceptDrops(true); ///< Включение Drag and Drop
+    QAction* action = m_menu.addAction(QString(tr("About"))); ///< Добавление контекстного меню по ПКМ
 
     connect(ui->binaryOpen, &QAction::triggered, this, &MainWindow::binaryOpen);
     connect(ui->binarySave, &QAction::triggered, this, &MainWindow::binarySave);
@@ -60,6 +53,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 }
 
+/*!
+ * \brief MainWindow::MainWindow::dragEnterEvent
+ * \param e
+ *
+ * Проверка типа при перетаскивании файла над главное окно
+ */
 void MainWindow::MainWindow::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasUrls())
@@ -68,10 +67,16 @@ void MainWindow::MainWindow::dragEnterEvent(QDragEnterEvent *e)
     }
 }
 
+/*!
+ * \brief MainWindow::dropEvent
+ * \param e
+ *
+ * Открытие файла при отпускании ЛКМ над главным окном
+ */
 void MainWindow::dropEvent(QDropEvent *e)
 {
     QList<QString> file_names;
-    foreach (const QUrl &url, e->mimeData()->urls())
+    foreach (const QUrl &url, e->mimeData()->urls()) ///< Получение адресов файлов
     {
         file_names.append(url.toLocalFile());
     }
@@ -96,10 +101,9 @@ void MainWindow::dropEvent(QDropEvent *e)
             return;
         }
 
-        //Создание таблицы
         QTableView* new_table =  new QTableView(ui->tabWidget);
         new_table->setSortingEnabled(true);
-        VesupplierTableModel* model = new VesupplierTableModel(new_table);
+        VesupplierModel* model = new VesupplierModel(new_table);
         QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
         sort_model->setSourceModel(model);
         while (!in.atEnd())
@@ -123,11 +127,22 @@ void MainWindow::dropEvent(QDropEvent *e)
     }
 }
 
+/*!
+ * \brief MainWindow::contextMenuEvent
+ * \param e
+ *
+ * Действие при нажатии ПКМ (открытие контекстного меню)
+ */
 void MainWindow::contextMenuEvent(QContextMenuEvent *e)
 {
     m_menu.exec(e->globalPos());
 }
 
+/*!
+ * \brief MainWindow::~MainWindow
+ *
+ * Запоминание настроек
+ */
 MainWindow::~MainWindow()
 {
     QSettings settings("MGSU", "Database");
@@ -138,6 +153,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/*!
+ * \brief MainWindow::about
+ *
+ * Вкладка "О программе"
+ */
 void MainWindow::about()
 {
     QMessageBox::about(this
@@ -145,15 +165,20 @@ void MainWindow::about()
                      , QString(tr("Created by Alexey Ilin ICTMS 2-5")));
 }
 
+/*!
+ * \brief MainWindow::open
+ *
+ * Открытие файла
+ */
 void MainWindow::open()
 {
-    // Открытие файла
+
     QString file_name = QFileDialog::getOpenFileName(this
                                                    , QString(tr("Open file"))
                                                    , QDir::homePath()
-                                                   , QString(tr("Database (*.db)")));
+                                                   , QString(tr("Database (*.db)"))); ///< Получение названия файла
     QFile file(file_name);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ///< Открытие файла
         return;
 
     QTextStream in(&file);
@@ -161,7 +186,7 @@ void MainWindow::open()
     header = in.readLine();
 
 
-    if (header != QString("<DB>"))
+    if (header != QString("<DB>")) ///< Проверка на соответствие формата
     {
 
         QMessageBox::critical(this
@@ -172,11 +197,11 @@ void MainWindow::open()
     }
 
 
-    //Создание таблицы
-    QTableView* new_table =  new QTableView(ui->tabWidget);
-    new_table->setSortingEnabled(true);
-    VesupplierTableModel* model = new VesupplierTableModel(new_table);
-    QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
+
+    QTableView* new_table =  new QTableView(ui->tabWidget); ///< Создание таблицы
+    new_table->setSortingEnabled(true); ///< Включение сортировки
+    VesupplierModel* model = new VesupplierModel(new_table); ///< Создание модели
+    QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table); ///< Создание модели сортировки
     sort_model->setSourceModel(model);
     while (!in.atEnd())
     {
@@ -198,6 +223,11 @@ void MainWindow::open()
     file.close();
 }
 
+/*!
+ * \brief MainWindow::close
+ *
+ * Закрытие вкладки. Очищение памяти
+ */
 void MainWindow::close()
 {
     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -205,10 +235,15 @@ void MainWindow::close()
         delete tab;
 }
 
+/*!
+ * \brief MainWindow::save
+ *
+ * Сохранение файла
+ */
 void MainWindow::save()
 {
     QString file_name;
-    if (ui->tabWidget->currentIndex() != -1)
+    if (ui->tabWidget->currentIndex() != -1) ///< Проверка на наличии вкладки(таблицы)
         file_name = ui->tabWidget->tabText(ui->tabWidget->currentIndex());
     else
     {
@@ -218,43 +253,39 @@ void MainWindow::save()
         return;
     }
 
+    QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget()); ///< Получение таблицы из вкладки
+    QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model()); ///< Получение модели сортировки из таблицы
+    VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel()); ///< Получение модели из модели сортировки
 
+    QFile file(file_name);
+    if (!file.open(QFile::WriteOnly | QFile::Truncate))
+     return;
 
-     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
-     if (tab == nullptr)
-     {
-         QMessageBox::about(this
-                          , QString(tr("Warning!"))
-                          , QString(tr("You should open document before saving.")));
-         return;
-     }
-     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
-
-     QFile file(file_name);
-     if (!file.open(QFile::WriteOnly | QFile::Truncate))
-         return;
-
-     QTextStream out(&file);
-     out << "<DB>" << Qt::endl;
-     int rows = model->rowCount(QModelIndex());
-     for (int i = 0; i < rows; ++i)
-     {
-         out << model->data(model->index(i, 0), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 1), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 2), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 3), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 4), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 5), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 6), Qt::DisplayRole).toString() << ";"
-             << model->data(model->index(i, 7), Qt::DisplayRole).toString() << ";" << Qt::endl;
-     }
-     file.close();
-     QMessageBox::about(this
-                      , QString(tr("Success!"))
-                        , QString(tr("File is successfuly saved.")));
+    QTextStream out(&file);
+    out << "<DB>" << Qt::endl;
+    int rows = model->rowCount(QModelIndex());
+    for (int i = 0; i < rows; ++i)
+    {
+     out << model->data(model->index(i, 0), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 1), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 2), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 3), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 4), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 5), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 6), Qt::DisplayRole).toString() << ";"
+         << model->data(model->index(i, 7), Qt::DisplayRole).toString() << ";" << Qt::endl;
+    }
+    file.close();
+    QMessageBox::about(this
+                     , QString(tr("Success!"))
+                     , QString(tr("File is successfuly saved.")));
 }
 
+/*!
+ * \brief MainWindow::print
+ *
+ * Печать файла
+ */
 void MainWindow::print()
 {
     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -272,7 +303,7 @@ void MainWindow::print()
     if (printDialog->exec() == QDialog::Accepted)
     {
         QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-        VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+        VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
         QString strStream;
         QTextStream out(&strStream);
         out << "<html>\n"
@@ -281,7 +312,7 @@ void MainWindow::print()
             << "<body>\n"
             << "<table border=1>\n"
             << "<thead>\n"
-            << "<tr>\n";
+            << "<tr>\n"; ///< Создание html кода для последущей печати таблицы
         int columns = 8;
         for (int i = 0; i < columns; ++i)
         {
@@ -334,13 +365,17 @@ void MainWindow::print()
             << "</table>\n"
             << "</html>";
         QTextDocument document;
-        qDebug() << strStream;
         document.setHtml(strStream);
         document.print(&printer);
     }
     delete printDialog;
 }
 
+/*!
+ * \brief MainWindow::binaryOpen
+ *
+ * Бинарное открытие файла. Дополнительное задание
+ */
 void MainWindow::binaryOpen()
 {
     QString file_name = QFileDialog::getOpenFileName(this
@@ -365,13 +400,13 @@ void MainWindow::binaryOpen()
     }
     QTableView* new_table =  new QTableView(ui->tabWidget);
     new_table->setSortingEnabled(true);
-    VesupplierTableModel* model = new VesupplierTableModel(new_table);
+    VesupplierModel* model = new VesupplierModel(new_table);
     QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
     sort_model->setSourceModel(model);
 
     int row_count;
     int column_count;
-    in >> row_count >> column_count;
+    in >> row_count >> column_count; ///< Считивание количества строк и столбцов
 
     for (int row = 0; row < row_count; ++row)
     {
@@ -395,6 +430,11 @@ void MainWindow::binaryOpen()
     file.close();
 }
 
+/*!
+ * \brief MainWindow::binarySave
+ *
+ * Бинарное сохранение. Дополнительно задание
+ */
 void MainWindow::binarySave()
 {
     QString file_name;
@@ -416,7 +456,7 @@ void MainWindow::binarySave()
         return;
     }
     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
 
     QFile file(file_name);
     if (!file.open(QFile::WriteOnly | QFile::Truncate))
@@ -427,12 +467,12 @@ void MainWindow::binarySave()
     int row_count = model->rowCount(QModelIndex());
     int column_count = model->columnCount(QModelIndex());
 
-    out << row_count << column_count;
+    out << row_count << column_count; ///< Сохранение количество строк и столбцов
     for (int row = 0; row < row_count; ++row)
     {
         for (int column = 0; column < column_count; ++column)
         {
-            out << model->data(model->index(row, column), Qt::DisplayRole);
+            out << model->data(model->index(row, column), Qt::DisplayRole); ///< Запись объектов QVariant
         }
     }
 
@@ -442,7 +482,11 @@ void MainWindow::binarySave()
                        , QString(tr("File is successfuly saved.")));
 }
 
-
+/*!
+ * \brief MainWindow::on_addButton_clicked
+ *
+ * Добавление записи
+ */
 void MainWindow::on_addButton_clicked()
 {
 
@@ -455,12 +499,16 @@ void MainWindow::on_addButton_clicked()
         return;
     }
     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
     AddDialog addDialog(this, model);
     addDialog.exec();
 }
 
-
+/*!
+ * \brief MainWindow::on_deleteButton_clicked
+ *
+ * Удаление записи
+ */
 void MainWindow::on_deleteButton_clicked()
 {
      QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -472,7 +520,7 @@ void MainWindow::on_deleteButton_clicked()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
      QModelIndex index = tab->currentIndex();
      QModelIndex source_index = sort_model->mapToSource(index);
      if (!source_index.isValid())
@@ -481,7 +529,11 @@ void MainWindow::on_deleteButton_clicked()
      model->deleteRow(row);
 }
 
-
+/*!
+ * \brief MainWindow::on_editButton_clicked
+ *
+ * Изменение записи
+ */
 void MainWindow::on_editButton_clicked()
 {
      QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -493,7 +545,7 @@ void MainWindow::on_editButton_clicked()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
      QModelIndex index = tab->currentIndex();
      QModelIndex source_index = sort_model->mapToSource(index);
      if (!source_index.isValid())
@@ -503,7 +555,11 @@ void MainWindow::on_editButton_clicked()
      editDialog.exec();
 }
 
-
+/*!
+ * \brief MainWindow::on_findButton_clicked
+ *
+ * Поиск записи
+ */
 void MainWindow::on_findButton_clicked()
 {
      QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -515,12 +571,17 @@ void MainWindow::on_findButton_clicked()
          return;
      }
      QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-     VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+     VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
      FindDialog findDialog(this, model);
      findDialog.exec();
 
 }
 
+/*!
+ * \brief MainWindow::changeLangToRussian
+ *
+ * Смена языка на русский
+ */
 void MainWindow::changeLangToRussian()
 {
     QSettings settings("MGSU", "Database");
@@ -535,6 +596,11 @@ void MainWindow::changeLangToRussian()
     }
 }
 
+/*!
+ * \brief MainWindow::changeLangToEnglish
+ *
+ * Смена языка на английский
+ */
 void MainWindow::changeLangToEnglish()
 {
     QSettings settings("MGSU", "Database");
@@ -549,7 +615,11 @@ void MainWindow::changeLangToEnglish()
     }
 }
 
-
+/*!
+ * \brief MainWindow::on_graphicsButton_clicked
+ *
+ * Построение графиков
+ */
 void MainWindow::on_graphicsButton_clicked()
 {
     QTableView* tab = qobject_cast<QTableView*>(ui->tabWidget->currentWidget());
@@ -561,7 +631,7 @@ void MainWindow::on_graphicsButton_clicked()
         return;
     }
     QSortFilterProxyModel* sort_model = qobject_cast<QSortFilterProxyModel*>(tab->model());
-    VesupplierTableModel* model = static_cast<VesupplierTableModel*>(sort_model->sourceModel());
+    VesupplierModel* model = qobject_cast<VesupplierModel*>(sort_model->sourceModel());
     QModelIndex index = tab->currentIndex();
     QModelIndex source_index = sort_model->mapToSource(index);
     if (!source_index.isValid())

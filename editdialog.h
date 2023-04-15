@@ -2,8 +2,12 @@
 #define EDITDIALOG_H
 
 #include <QDialog>
-#include "vesuppliertablemodel.h"
 #include <QRegularExpressionValidator>
+#include <QPushButton>
+#include <QSettings>
+#include <QMessageBox>
+
+#include "vesuppliermodel.h"
 
 namespace Ui {
 class EditDialog;
@@ -14,7 +18,7 @@ class EditDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditDialog(QWidget *parent = nullptr, VesupplierTableModel* model = nullptr, int row = 0);
+    explicit EditDialog(QWidget *parent = nullptr, VesupplierModel* model = nullptr, int row = 0);
     ~EditDialog();
 
 private slots:
@@ -24,7 +28,7 @@ private slots:
 
 private:
     Ui::EditDialog *ui;
-    VesupplierTableModel *m_model;
+    VesupplierModel *m_model;
     QRegularExpressionValidator *m_nameOrganizationValidator;
     QRegularExpressionValidator *m_OGRNValidator;
     QRegularExpressionValidator *m_addressValidator;

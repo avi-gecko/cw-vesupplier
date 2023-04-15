@@ -16,7 +16,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     vesupplier.cpp \
-    vesuppliertablemodel.cpp
+    vesuppliermodel.cpp
 
 HEADERS += \
     adddialog.h \
@@ -25,7 +25,7 @@ HEADERS += \
     graphicsdialog.h \
     mainwindow.h \
     vesupplier.h \
-    vesuppliertablemodel.h
+    vesuppliermodel.h
 
 FORMS += \
     adddialog.ui \

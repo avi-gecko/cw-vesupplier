@@ -1,11 +1,16 @@
 #include "editdialog.h"
 #include "ui_editdialog.h"
-#include "vesuppliertablemodel.h"
-#include <QPushButton>
-#include <QSettings>
-#include <QMessageBox>
 
-EditDialog::EditDialog(QWidget *parent, VesupplierTableModel* model, int row) :
+/*!
+ * \brief EditDialog::EditDialog
+ * \param parent
+ * \param model
+ * \param row
+ *
+ * Конструктор окна изменения записи. Полученние данных из записи,
+ * создание регулярных выражений и валидаторов
+ */
+EditDialog::EditDialog(QWidget *parent, VesupplierModel* model, int row) :
     QDialog(parent),
     ui(new Ui::EditDialog),
     m_model(model),
@@ -57,6 +62,11 @@ EditDialog::~EditDialog()
     delete ui;
 }
 
+/*!
+ * \brief EditDialog::on_buttonBox_accepted
+ *
+ * Проверка и изменение данных
+ */
 void EditDialog::on_buttonBox_accepted()
 {
     int pos = 0;

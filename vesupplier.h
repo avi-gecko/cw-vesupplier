@@ -1,7 +1,13 @@
 #ifndef VESUPPLIER_H
 #define VESUPPLIER_H
+
 #include <QString>
 
+/*!
+ * \brief The Vesupplier class
+ *
+ * Класс вент. оборудования
+ */
 class Vesupplier
 {
 public:

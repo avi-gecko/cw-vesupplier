@@ -1,15 +1,14 @@
 #include "adddialog.h"
 #include "ui_adddialog.h"
-#include "vesupplier.h"
-#include "vesuppliertablemodel.h"
-#include <QPushButton>
-#include <QRegularExpression>
-#include <QRegularExpressionValidator>
-#include <QValidator>
-#include <QMessageBox>
-#include <QSettings>
 
-AddDialog::AddDialog(QWidget *parent, VesupplierTableModel *model) :
+/*!
+ * \brief AddDialog::AddDialog
+ * \param parent
+ * \param model
+ *
+ * Конктрустор окна добавление. Создание валидаторов и регулярных выражений
+ */
+AddDialog::AddDialog(QWidget *parent, VesupplierModel *model) :
     QDialog(parent),
     ui(new Ui::AddDialog),
     m_model(model)
@@ -51,6 +50,11 @@ AddDialog::~AddDialog()
     delete ui;
 }
 
+/*!
+ * \brief AddDialog::on_buttonBox_accepted
+ *
+ * Проверка вводимых данных. Добавление, если проверки пройдены
+ */
 void AddDialog::on_buttonBox_accepted()
 {
     int pos = 0;

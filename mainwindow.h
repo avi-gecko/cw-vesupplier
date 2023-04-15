@@ -9,8 +9,24 @@
 #include <QPrinter>
 #include <QPainter>
 #include <QTextDocument>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QString>
+#include <QFile>
+#include <QTextStream>
+#include <QStringList>
+#include <QTableView>
+#include <QSortFilterProxyModel>
+#include <QSettings>
+#include <QDragEnterEvent>
+#include <QMimeData>
+
 #include "adddialog.h"
 #include "editdialog.h"
+#include "vesupplier.h"
+#include "vesuppliermodel.h"
+#include "finddialog.h"
+#include "graphicsdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

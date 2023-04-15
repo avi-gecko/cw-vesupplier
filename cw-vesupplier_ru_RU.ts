@@ -543,19 +543,19 @@
     </message>
 </context>
 <context>
-    <name>VesupplierTableModel</name>
+    <name>VesupplierModel</name>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="94"/>
+        <location filename="vesuppliermodel.cpp" line="94"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="96"/>
+        <location filename="vesuppliermodel.cpp" line="96"/>
         <source>OGRN</source>
         <translation>ОГРН</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="98"/>
+        <location filename="vesuppliermodel.cpp" line="98"/>
         <source>Address</source>
         <translation>Адрес</translation>
     </message>
@@ -564,27 +564,27 @@
         <translation type="vanished">ФИО владельца</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="100"/>
+        <location filename="vesuppliermodel.cpp" line="100"/>
         <source>Owner name</source>
         <translation>Имя владельца</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="102"/>
+        <location filename="vesuppliermodel.cpp" line="102"/>
         <source>Phone</source>
         <translation>Номер телефона</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="104"/>
+        <location filename="vesuppliermodel.cpp" line="104"/>
         <source>Product count</source>
         <translation>Количество товара</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="106"/>
+        <location filename="vesuppliermodel.cpp" line="106"/>
         <source>Post count</source>
         <translation>Количество поставок</translation>
     </message>
     <message>
-        <location filename="vesuppliertablemodel.cpp" line="108"/>
+        <location filename="vesuppliermodel.cpp" line="108"/>
         <source>Price</source>
         <translation>Цена</translation>
     </message>

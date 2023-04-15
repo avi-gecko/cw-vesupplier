@@ -2,10 +2,13 @@
 #define FINDDIALOG_H
 
 #include <QDialog>
-#include "vesuppliertablemodel.h"
 #include <QButtonGroup>
 #include <QTableView>
 #include <QSortFilterProxyModel>
+#include <QMessageBox>
+#include <QPushButton>
+
+#include "vesuppliermodel.h"
 
 namespace Ui {
 class FindDialog;
@@ -16,7 +19,7 @@ class FindDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit FindDialog(QWidget *parent = nullptr, VesupplierTableModel *model = nullptr);
+    explicit FindDialog(QWidget *parent = nullptr, VesupplierModel *model = nullptr);
     ~FindDialog();
 
 private slots:
@@ -24,10 +27,10 @@ private slots:
 
 private:
     Ui::FindDialog *ui;
-    VesupplierTableModel *m_model;
+    VesupplierModel *m_model;
     QButtonGroup m_group;
     QTableView *m_newTable;
-    VesupplierTableModel *m_newModel;
+    VesupplierModel *m_newModel;
     QSortFilterProxyModel *m_newSortModel;
 };
 

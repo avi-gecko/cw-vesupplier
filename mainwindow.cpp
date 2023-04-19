@@ -32,8 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     if (m_translator.load(":/i18n/" + baseName + m_lang, ":/translations"))
     {
         qApp->installTranslator(&m_translator);
+        qApp->installTranslator(&m_qtTranslator);
+        m_qtTranslator.load("qt_" + m_lang + ".qm"
+                          , QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         ui->retranslateUi(this);
     }
+
 
     ui->tabWidget->clear(); ///< Удаление стандартных вкладок
     setAcceptDrops(true); ///< Включение Drag and Drop
@@ -592,6 +596,8 @@ void MainWindow::changeLangToRussian()
     if (m_translator.load(":/i18n/" + baseName + "ru_RU", ":/translations"))
     {
         qApp->installTranslator(&m_translator);
+        m_qtTranslator.load("qt_ru_RU.qm"
+                          , QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         ui->retranslateUi(this);
     }
 }
@@ -611,6 +617,8 @@ void MainWindow::changeLangToEnglish()
     if (m_translator.load(":/i18n/" + baseName + "ru_RU", ":/translations"))
     {
         qApp->removeTranslator(&m_translator);
+        m_qtTranslator.load("qt_us_US.qm"
+                          , QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         ui->retranslateUi(this);
     }
 }

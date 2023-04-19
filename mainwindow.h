@@ -20,6 +20,7 @@
 #include <QSettings>
 #include <QDragEnterEvent>
 #include <QMimeData>
+#include <QLibraryInfo>
 
 #include "adddialog.h"
 #include "editdialog.h"
@@ -46,6 +47,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QTranslator m_translator;
+    QTranslator m_qtTranslator;
     QString m_lang;
     QLocale m_locale;
     QMenu m_menu;

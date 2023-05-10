@@ -126,6 +126,7 @@ void MainWindow::dropEvent(QDropEvent *e)
              model->append(new_item);
         }
         new_table->setModel(sort_model);
+        new_table->resizeColumnsToContents();
         ui->tabWidget->addTab(new_table, file_name);
         file.close();
     }
@@ -223,6 +224,7 @@ void MainWindow::open()
          model->append(new_item);
     }
     new_table->setModel(sort_model);
+    new_table->resizeColumnsToContents();
     ui->tabWidget->addTab(new_table, file_name);
     file.close();
 }
@@ -430,6 +432,7 @@ void MainWindow::binaryOpen()
         model->append(new_item);
     }
     new_table->setModel(sort_model);
+    new_table->resizeColumnsToContents();
     ui->tabWidget->addTab(new_table, file_name);
     file.close();
 }

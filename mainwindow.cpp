@@ -129,6 +129,9 @@ void MainWindow::dropEvent(QDropEvent *e)
         }
         new_table->setModel(sort_model);
         new_table->resizeColumnsToContents();
+        new_table->setDragEnabled(true);
+        new_table->setDragDropMode(QAbstractItemView::InternalMove);
+        new_table->setSelectionMode(QAbstractItemView::SingleSelection);
         ui->tabWidget->addTab(new_table, file_name);
         file.close();
     }
@@ -169,6 +172,9 @@ void MainWindow::newTable()
     sort_model->setSourceModel(model);
     new_table->setModel(sort_model);
     new_table->resizeColumnsToContents();
+    new_table->setDragEnabled(true);
+    new_table->setDragDropMode(QAbstractItemView::InternalMove);
+    new_table->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tabWidget->addTab(new_table, tr("New table"));
 }
 
@@ -239,6 +245,9 @@ void MainWindow::open()
     }
     new_table->setModel(sort_model);
     new_table->resizeColumnsToContents();
+    new_table->setDragEnabled(true);
+    new_table->setDragDropMode(QAbstractItemView::InternalMove);
+    new_table->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tabWidget->addTab(new_table, file_name);
     file.close();
 }
@@ -447,6 +456,9 @@ void MainWindow::binaryOpen()
     }
     new_table->setModel(sort_model);
     new_table->resizeColumnsToContents();
+    new_table->setDragEnabled(true);
+    new_table->setDragDropMode(QAbstractItemView::InternalMove);
+    new_table->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tabWidget->addTab(new_table, file_name);
     file.close();
 }
@@ -640,6 +652,11 @@ void MainWindow::changeLangToEnglish()
     }
 }
 
+/*!
+ * \brief MainWindow::changeLangToChinese
+ *
+ * Смена языка на китайский
+ */
 void MainWindow::changeLangToChinese()
 {
     QSettings settings("MGSU", "Database");

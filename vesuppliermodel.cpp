@@ -225,6 +225,80 @@ bool VesupplierModel::setData(const QModelIndex &index, const QVariant &value, i
 }
 
 /*!
+ * \brief VesupplierModel::flags
+ * \param index
+ * \return
+ *
+ * Установка флагов
+ */
+Qt::ItemFlags VesupplierModel::flags(const QModelIndex &index) const
+{
+    if (index.isValid())
+        return Qt::ItemIsDragEnabled  | Qt::ItemIsDropEnabled  | QAbstractItemModel::flags(index);
+    return QAbstractItemModel::flags(index);
+}
+
+/*!
+ * \brief VesupplierModel::supportedDropActions
+ * \return
+ *
+ * Разрешенные действия с таблицей
+ */
+Qt::DropActions VesupplierModel::supportedDropActions() const
+{
+    return Qt::MoveAction | QAbstractItemModel::supportedDropActions();
+}
+
+/*!
+ * \brief VesupplierModel::mimeData
+ * \param indexes
+ * \return
+ *
+ * Сбор данных при захвате
+ */
+QMimeData *VesupplierModel::mimeData(const QModelIndexList &indexes) const
+{
+    QMimeData *data = QAbstractItemModel::mimeData(indexes);
+
+    if (data)
+    {
+        data->setData("row", QByteArray::number(indexes.at(0).row()));
+        data->setData("col", QByteArray::number(indexes.at(0).column()));
+    }
+    return data;
+}
+
+/*!
+ * \brief VesupplierModel::dropMimeData
+ * \param data
+ * \param action
+ * \param row
+ * \param column
+ * \param parent
+ * \return
+ *
+ * Действия при сбрасывании
+ */
+bool VesupplierModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+{
+    if(!data or action != Qt::MoveAction)
+        return false;
+
+    const QModelIndex old_index=index(data->data("row").toInt(), data->data("col").toInt());
+    const QModelIndex current_index=parent;
+
+    if (current_index.column() == old_index.column())
+    {
+        setData(current_index, VesupplierModel::data(old_index, Qt::DisplayRole), Qt::EditRole);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*!
  * \brief VesupplierModel::find
  * \param criteria
  * \param column

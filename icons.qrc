@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/tools">
+        <file>tools_icons/x-circular-symbolic.svg</file>
+        <file>tools_icons/document-save-symbolic.svg</file>
+        <file>tools_icons/document-save-as-symbolic.svg</file>
+        <file>tools_icons/document-open-symbolic.svg</file>
+        <file>tools_icons/cross-filled-large-symbolic.svg</file>
+        <file>tools_icons/printer-symbolic.svg</file>
+        <file>tools_icons/paper-symbolic.svg</file>
+        <file>tools_icons/open-menu-symbolic.svg</file>
+    </qresource>
+</RCC>

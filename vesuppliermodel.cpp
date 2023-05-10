@@ -132,6 +132,10 @@ QVariant VesupplierModel::headerData(int section, Qt::Orientation orientation, i
                 return tr("Price");
         }
     }
+    if (role == Qt::DisplayRole && orientation == Qt::Vertical)
+    {
+        return section + 1;
+    }
     return QVariant();
 }
 

@@ -121,6 +121,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNew"/>
     <addaction name="open"/>
     <addaction name="binaryOpen"/>
     <addaction name="binarySave"/>
@@ -156,6 +157,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionNew"/>
    <addaction name="open"/>
    <addaction name="save"/>
    <addaction name="binaryOpen"/>
@@ -255,6 +257,15 @@
    </property>
    <property name="text">
     <string>Binary open</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/tools/tools_icons/paper-symbolic.svg</normaloff>:/tools/tools_icons/paper-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
    </property>
   </action>
  </widget>

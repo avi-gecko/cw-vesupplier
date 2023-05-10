@@ -53,6 +53,7 @@ private:
     QMenu m_menu;
 
 private slots:
+    void newTable();
     void about();
     void open();
     void close();

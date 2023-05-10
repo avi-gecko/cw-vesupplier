@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
     connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
     connect(ui->print, &QAction::triggered, this, &MainWindow::print);
+    connect(ui->actionNew, &QAction::triggered, this, &MainWindow::newTable);
 
 }
 
@@ -156,6 +157,18 @@ MainWindow::~MainWindow()
         settings.setValue("position", pos());
     settings.endGroup();
     delete ui;
+}
+
+void MainWindow::newTable()
+{
+    QTableView* new_table =  new QTableView(ui->tabWidget);
+    new_table->setSortingEnabled(true);
+    VesupplierModel* model = new VesupplierModel(new_table);
+    QSortFilterProxyModel* sort_model = new QSortFilterProxyModel(new_table);
+    sort_model->setSourceModel(model);
+    new_table->setModel(sort_model);
+    new_table->resizeColumnsToContents();
+    ui->tabWidget->addTab(new_table, tr("New table"));
 }
 
 /*!

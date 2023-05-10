@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AddDialog</name>
     <message>
         <location filename="adddialog.ui" line="14"/>
         <source>Add row</source>
-        <translation>Добавить запись</translation>
+        <translation>添加行</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="20"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>姓名</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="46"/>
         <location filename="adddialog.cpp" line="73"/>
         <source>OGRN</source>
-        <translation>ОГРН</translation>
+        <translation>OGRN</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="53"/>
@@ -28,29 +28,29 @@
         <location filename="adddialog.ui" line="60"/>
         <location filename="adddialog.cpp" line="81"/>
         <source>Address</source>
-        <translation>Адрес</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="67"/>
         <source>city, street, house, office</source>
-        <translation>город, улица, дом, офис</translation>
+        <translation>城市，街道，房子，办公室</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="74"/>
         <location filename="adddialog.cpp" line="89"/>
         <source>Owner name</source>
-        <translation>Имя владельца</translation>
+        <translation>业主姓名</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="81"/>
         <source>Last name First name Middle name(optional)</source>
-        <translation>Фамилия Имя Отчество(опционально)</translation>
+        <translation>姓氏 名字 中间名（可选）</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="88"/>
         <location filename="adddialog.cpp" line="97"/>
         <source>Phone</source>
-        <translation>Номер телефона</translation>
+        <translation>电话</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="95"/>
@@ -60,57 +60,57 @@
     <message>
         <location filename="adddialog.ui" line="102"/>
         <source>Product count</source>
-        <translation>Количество товара</translation>
+        <translation>产品数量</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="112"/>
         <source>Post count</source>
-        <translation>Количество поставок</translation>
+        <translation>帖子数</translation>
     </message>
     <message>
         <location filename="adddialog.ui" line="122"/>
         <source>Price</source>
-        <translation>Цена</translation>
+        <translation>价格</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="17"/>
         <source>Ok</source>
-        <translation>Принять</translation>
+        <translation>好的</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="18"/>
         <source>Cancel</source>
-        <translation>Закрыть</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="65"/>
         <source>Organization name</source>
-        <translation>Название организации</translation>
+        <translation>机构名称</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="66"/>
         <source>Organization name is required.</source>
-        <translation>Требуется ввести название организации.</translation>
+        <translation>组织名称是必需的。</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="74"/>
         <source>OGRN has to contain 13 digits.</source>
-        <translation>ОГРН должен состоять из 13 цифр.</translation>
+        <translation>OGRN 必须包含 13 位数字。</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="82"/>
         <source>Address should be matched like: city, street, house, office. Without spaces in the end</source>
-        <translation>Адрес должен выглядеть так: город, улица, дом, офис. Без пробела в конце</translation>
+        <translation>地址应匹配如下：城市、街道、房屋、办公室。 末尾没有空格</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="90"/>
         <source>Owner name should be matched like: Last name *space* First name *space* Middle name &lt;-- optional. Without spaces in the end</source>
-        <translation>Имя владельца должно выглядеть так: Фамилия *пробел* Имя *пробел* Отчество&lt;-- опцонально. Без пробела в конце</translation>
+        <translation>所有者姓名应匹配如下：姓氏*空格*名字*空格*中间名&lt;--可选。 末尾没有空格</translation>
     </message>
     <message>
         <location filename="adddialog.cpp" line="98"/>
         <source>Phone should be matched like: + or without X(XXX)XXX-XX-XX. Without spaces in the end</source>
-        <translation>Номер телефона должен выглядеть так: + с или без X(XXX)XXX-XX-XX. Без пробела в конце</translation>
+        <translation>电话应该像这样匹配：+ 或没有 X(XXX)XXX-XX-XX。 末尾没有空格</translation>
     </message>
 </context>
 <context>
@@ -118,18 +118,18 @@
     <message>
         <location filename="editdialog.ui" line="14"/>
         <source>Edit row</source>
-        <translation>Изменить запись</translation>
+        <translation>编辑行</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="20"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>姓名</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="30"/>
         <location filename="editdialog.cpp" line="85"/>
         <source>OGRN</source>
-        <translation>ОГРН</translation>
+        <translation>OGRN</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="37"/>
@@ -140,29 +140,29 @@
         <location filename="editdialog.ui" line="44"/>
         <location filename="editdialog.cpp" line="93"/>
         <source>Address</source>
-        <translation>Адрес</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="51"/>
         <source>city, street, house, office</source>
-        <translation>город, улица, дом, офис</translation>
+        <translation>城市，街道，房子，办公室</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="58"/>
         <location filename="editdialog.cpp" line="101"/>
         <source>Owner name</source>
-        <translation>Имя владельца</translation>
+        <translation>业主姓名</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="65"/>
         <source>Last name First name Middle name(optional)</source>
-        <translation>Фамилия Имя Отчество(опционально)</translation>
+        <translation>姓氏 名字 中间名（可选）</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="72"/>
         <location filename="editdialog.cpp" line="109"/>
         <source>Phone</source>
-        <translation>Номер телефона</translation>
+        <translation>电话</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="79"/>
@@ -172,57 +172,57 @@
     <message>
         <location filename="editdialog.ui" line="86"/>
         <source>Product count</source>
-        <translation>Количество товара</translation>
+        <translation>产品数量</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="96"/>
         <source>Post count</source>
-        <translation>Количество поставок</translation>
+        <translation>帖子数</translation>
     </message>
     <message>
         <location filename="editdialog.ui" line="106"/>
         <source>Price</source>
-        <translation>Цена</translation>
+        <translation>价格</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="20"/>
         <source>Ok</source>
-        <translation>Принять</translation>
+        <translation>好的</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="21"/>
         <source>Cancel</source>
-        <translation>Закрыть</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="77"/>
         <source>Organization name</source>
-        <translation>Название организации</translation>
+        <translation>机构名称</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="78"/>
         <source>Organization name is required.</source>
-        <translation>Требуется ввести название организации.</translation>
+        <translation>组织名称是必需的。</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="86"/>
         <source>OGRN has to contain 13 digits.</source>
-        <translation>ОГРН должен состоять из 13 цифр.</translation>
+        <translation>OGRN 必须包含 13 位数字。</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="94"/>
         <source>Address should be matched like: city, street, house, office. Without spaces in the end</source>
-        <translation>Адрес должен выглядеть так: город, улица, дом, офис. Без пробела в конце</translation>
+        <translation>地址应匹配如下：城市、街道、房屋、办公室。 末尾没有空格</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="102"/>
         <source>Owner name should be matched like: Last name *space* First name *space* Middle name &lt;-- optional. Without spaces in the end</source>
-        <translation>Имя владельца должно выглядеть так: Фамилия *пробел* Имя *пробел* Отчество&lt;-- опцонально. Без пробела в конце</translation>
+        <translation>所有者姓名应匹配如下：姓氏*空格*名字*空格*中间名&lt;--可选。 末尾没有空格</translation>
     </message>
     <message>
         <location filename="editdialog.cpp" line="110"/>
         <source>Phone should be matched like: + or without X(XXX)XXX-XX-XX. Without spaces in the end</source>
-        <translation>Номер телефона должен выглядеть так: + с или без X(XXX)XXX-XX-XX. Без пробела в конце</translation>
+        <translation>电话应该像这样匹配：+ 或没有 X(XXX)XXX-XX-XX。 末尾没有空格</translation>
     </message>
 </context>
 <context>
@@ -230,82 +230,82 @@
     <message>
         <location filename="finddialog.ui" line="14"/>
         <source>Find row</source>
-        <translation>Найти запись</translation>
+        <translation>查找行</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="22"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>姓名</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="29"/>
         <source>OGRN</source>
-        <translation>ОГРН</translation>
+        <translation>OGRN</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="36"/>
         <source>Address</source>
-        <translation>Адрес</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="43"/>
         <source>Owner name</source>
-        <translation>Имя владельца</translation>
+        <translation>业主姓名</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="50"/>
         <source>Phone</source>
-        <translation>Номер телефона</translation>
+        <translation>电话</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="57"/>
         <source>Product count</source>
-        <translation>Количество товара</translation>
+        <translation>产品数量</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="64"/>
         <source>Post count</source>
-        <translation>Количество поставок</translation>
+        <translation>帖子数</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="71"/>
         <source>Price</source>
-        <translation>Цена</translation>
+        <translation>价格</translation>
     </message>
     <message>
         <location filename="finddialog.ui" line="82"/>
         <source>Enter</source>
-        <translation>Ввод</translation>
+        <translation>进入</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="21"/>
         <source>Ok</source>
-        <translation>Принять</translation>
+        <translation>好的</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="22"/>
         <source>Cancel</source>
-        <translation>Закрыть</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="57"/>
         <source>Warning!</source>
-        <translation>Внимание!</translation>
+        <translation>警告！</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="58"/>
         <source>You should choose column before finding.</source>
-        <translation>Вам следует выбрать столбец перед началом поиска.</translation>
+        <translation>您应该在查找之前选择列。</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="66"/>
         <source>Not found!</source>
-        <translation>Не найдено!</translation>
+        <translation>未找到！</translation>
     </message>
     <message>
         <location filename="finddialog.cpp" line="67"/>
         <source>There is none of results.</source>
-        <translation>Нет найденных результатов в таблице.</translation>
+        <translation>没有任何结果。</translation>
     </message>
 </context>
 <context>
@@ -313,7 +313,7 @@
     <message>
         <location filename="graphicsdialog.ui" line="14"/>
         <source>Graphics</source>
-        <translation>График</translation>
+        <translation>图形</translation>
     </message>
 </context>
 <context>
@@ -321,8 +321,7 @@
     <message>
         <location filename="mainwindow.ui" line="17"/>
         <source>Database</source>
-        <oldsource>Data base</oldsource>
-        <translation>База данных</translation>
+        <translation>数据库</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="37"/>
@@ -337,137 +336,144 @@
     <message>
         <location filename="mainwindow.ui" line="55"/>
         <source>Actions</source>
-        <translation>Действия</translation>
+        <translation>动作</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="61"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="68"/>
         <source>Edit</source>
-        <translation>Редактировать</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="75"/>
         <source>Find</source>
-        <translation>Найти</translation>
+        <translation>寻找</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="82"/>
         <source>Graphics</source>
-        <translation>График</translation>
+        <translation>图形</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="89"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="122"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="135"/>
         <location filename="mainwindow.cpp" line="44"/>
         <location filename="mainwindow.cpp" line="183"/>
         <source>About</source>
-        <translation>О программе</translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="140"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="176"/>
         <source>Open</source>
-        <translation>Открыть</translation>
+        <translation>打开</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="185"/>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="194"/>
         <source>Exit</source>
-        <translation>Выход</translation>
+        <translation>出口</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="203"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>节省</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="208"/>
         <location filename="mainwindow.ui" line="218"/>
         <location filename="mainwindow.ui" line="228"/>
         <source>Russian</source>
-        <translation>Русский</translation>
+        <translation>俄语</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="213"/>
         <location filename="mainwindow.ui" line="223"/>
         <location filename="mainwindow.ui" line="233"/>
         <source>English</source>
-        <translation>Английский</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="242"/>
         <source>Print</source>
-        <translation>Печать</translation>
+        <translation>打印</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="251"/>
         <source>Binary save</source>
-        <translation>Бинарное сохранение</translation>
+        <translation>二进制保存</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="260"/>
         <source>Binary open</source>
-        <translation>Бинарное открытие</translation>
+        <translation>二进制打开</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="269"/>
         <source>New</source>
-        <translation>Новый</translation>
+        <translation>新的</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="274"/>
         <source>Chinese</source>
-        <translation>Китайский</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="184"/>
-        <source>Created by Alexey Ilin ICTMS 2-5</source>
-        <translation>Создано Алексеем Ильиным ИЦТМС 2-5</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="196"/>
-        <location filename="mainwindow.cpp" line="402"/>
-        <source>Open file</source>
-        <translation>Открытие файла</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="198"/>
-        <location filename="mainwindow.cpp" line="404"/>
-        <source>Database (*.db)</source>
-        <translation>База данных (*.db)</translation>
+        <translation>汉语</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="104"/>
         <location filename="mainwindow.cpp" line="212"/>
         <location filename="mainwindow.cpp" line="416"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation>错误！</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="105"/>
+        <location filename="mainwindow.cpp" line="213"/>
+        <location filename="mainwindow.cpp" line="417"/>
+        <source>Wrong file format.</source>
+        <translation>错误的文件格式。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="172"/>
         <source>New table</source>
-        <translation>Новая таблица</translation>
+        <translation>新表</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="184"/>
+        <source>Created by Alexey Ilin ICTMS 2-5</source>
+        <translation>由 Alexey Ilin 创建 ICTMS 2-5</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="196"/>
+        <location filename="mainwindow.cpp" line="402"/>
+        <source>Open file</source>
+        <translation>打开文件</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="198"/>
+        <location filename="mainwindow.cpp" line="404"/>
+        <source>Database (*.db)</source>
+        <translation>数据库 (*.db)</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="271"/>
@@ -481,80 +487,61 @@
         <location filename="mainwindow.cpp" line="670"/>
         <location filename="mainwindow.cpp" line="684"/>
         <source>Warning!</source>
-        <translation>Внимание!</translation>
+        <translation>警告！</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="272"/>
         <location filename="mainwindow.cpp" line="468"/>
         <source>You should open document before saving.</source>
-        <translation>Вам следует открыть документ перед сохранением.</translation>
+        <translation>您应该在保存之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="300"/>
         <location filename="mainwindow.cpp" line="502"/>
         <source>Success!</source>
-        <translation>Успех!</translation>
+        <translation>成功！</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="301"/>
         <location filename="mainwindow.cpp" line="503"/>
         <source>File is successfuly saved.</source>
-        <translation>Файл успешно сохранён.</translation>
+        <translation>文件已成功保存。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="316"/>
         <source>You should open document before printing.</source>
-        <translation>Вам следует открыть документ перед печатью.</translation>
+        <translation>您应该在打印前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="476"/>
         <location filename="mainwindow.cpp" line="519"/>
         <source>You should open document before adding.</source>
-        <translation>Вам следует открыть документ перед добавлением записи.</translation>
+        <translation>您应该在添加之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="540"/>
         <source>You should open document before deleting.</source>
-        <translation>Вам следует открыть документ перед удалением записи.</translation>
+        <translation>您应该在删除之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="565"/>
         <source>You should open document before editing.</source>
-        <translation>Вам следует открыть документ перед редактированием записи.</translation>
+        <translation>您应该在编辑之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="591"/>
         <source>You should open document before finding.</source>
-        <translation>Вам следует открыть документ перед началом поиска.</translation>
-    </message>
-    <message>
-        <source>Change language</source>
-        <translation type="vanished">Смена языка</translation>
-    </message>
-    <message>
-        <source>Changes will be applied after restart.</source>
-        <translation type="vanished">Изменения будут применены после перезапуска.</translation>
+        <translation>你应该在找到之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="671"/>
         <source>You should open document before making graphics.</source>
-        <translation>Вам следует открыть документ перед построением графиков.</translation>
+        <translation>你应该在制作图形之前打开文档。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="685"/>
         <source>You can&apos;t make graphics from text values.</source>
-        <translation>Вы не можете построить график, используя текстовые значения.</translation>
-    </message>
-    <message>
-        <source>Table can&apos;t has columns.</source>
-        <translation type="vanished">Таблица не может не иметь столбцов.</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="105"/>
-        <location filename="mainwindow.cpp" line="213"/>
-        <location filename="mainwindow.cpp" line="417"/>
-        <source>Wrong file format.</source>
-        <translation>Неверный формат файла.</translation>
+        <translation>您不能从文本值制作图形。</translation>
     </message>
 </context>
 <context>
@@ -562,46 +549,42 @@
     <message>
         <location filename="vesuppliermodel.cpp" line="118"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>姓名</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="120"/>
         <source>OGRN</source>
-        <translation>ОГРН</translation>
+        <translation>OGRN</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="122"/>
         <source>Address</source>
-        <translation>Адрес</translation>
-    </message>
-    <message>
-        <source>Name owner</source>
-        <translation type="vanished">ФИО владельца</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="124"/>
         <source>Owner name</source>
-        <translation>Имя владельца</translation>
+        <translation>业主姓名</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="126"/>
         <source>Phone</source>
-        <translation>Номер телефона</translation>
+        <translation>电话</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="128"/>
         <source>Product count</source>
-        <translation>Количество товара</translation>
+        <translation>产品数量</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="130"/>
         <source>Post count</source>
-        <translation>Количество поставок</translation>
+        <translation>帖子数</translation>
     </message>
     <message>
         <location filename="vesuppliermodel.cpp" line="132"/>
         <source>Price</source>
-        <translation>Цена</translation>
+        <translation>价格</translation>
     </message>
 </context>
 </TS>

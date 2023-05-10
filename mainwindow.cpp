@@ -53,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->save, &QAction::triggered, this, &MainWindow::save);
     connect(ui->russian, &QAction::triggered, this, &MainWindow::changeLangToRussian);
     connect(ui->english, &QAction::triggered, this, &MainWindow::changeLangToEnglish);
+    connect(ui->actionChinese, &QAction::triggered, this, &MainWindow::changeLangToChinese);
     connect(ui->print, &QAction::triggered, this, &MainWindow::print);
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::newTable);
 
@@ -634,6 +635,22 @@ void MainWindow::changeLangToEnglish()
     {
         qApp->removeTranslator(&m_translator);
         m_qtTranslator.load("qt_us_US.qm"
+                          , QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+        ui->retranslateUi(this);
+    }
+}
+
+void MainWindow::changeLangToChinese()
+{
+    QSettings settings("MGSU", "Database");
+    settings.beginGroup("Language");
+        settings.setValue("lang", QVariant("zh_CN"));
+    settings.endGroup();
+    const QString baseName = "cw-vesupplier_";
+    if (m_translator.load(":/i18n/" + baseName + "zh_CN", ":/translations"))
+    {
+        qApp->installTranslator(&m_translator);
+        m_qtTranslator.load("qt_zh_CN.qm"
                           , QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         ui->retranslateUi(this);
     }

@@ -35,7 +35,8 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    cw-vesupplier_ru_RU.ts
+    cw-vesupplier_ru_RU.ts \
+    cw-vesupplier_zh_CN.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 

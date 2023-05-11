@@ -163,6 +163,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/*!
+ * \brief MainWindow::newTable
+ *
+ * Создание новой таблицы
+ */
 void MainWindow::newTable()
 {
     QTableView* new_table =  new QTableView(ui->tabWidget);
